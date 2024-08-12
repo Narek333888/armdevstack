@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'profile' => 'Պրոֆիլ',
+    'profile_information' => 'Պրոֆիլի Տվյալներ',
+    'update_your_accounts_profile_information_and_email_address' => "Թարմացրեք ձեր հաշվի պրոֆիլի տվյալները և էլ․ փոստի հասցեն:",
+    'name_input_label' => 'Անուն',
+    'email_input_label' => 'Էլ․ Հասցե',
+    'your_email_address_is_unverified.' => 'Ձեր էլ․ փոստի հասցեն ստուգված չէ:',
+    'click_here_to_re_send_the_verification_email' => 'Սեղմեք այստեղ՝ հաստատող նամակը նորից ուղարկելու համար:',
+    'a_new_verification_link_has_been_sent_to_your_email_address' => 'Նոր հաստատման հղում է ուղարկվել ձեր էլ. փոստի հասցեին:',
+    'save' => 'Պահպանել',
+    'saved' => 'Պահպանվեց',
+    'update_password' => 'Թարմացնել Գաղտնաբառը',
+    'ensure_your_account_is_using_a_long_random_password_to_stay_secure' => 'Համոզվեք, որ ձեր հաշիվն օգտագործում է երկար, պատահական գաղտնաբառ՝ անվտանգ մնալու համար:',
+    'current_password_input_label' => 'Ընթացիկ Գաղտնաբառը',
+    'new_password_input_label' => 'Նոր Գաղտնաբառ',
+    'confirm_password' => 'Հաստատել Գաղտնաբառը',
+    'delete_account' => 'Ջնջել Հաշիվը',
+    'once_your_account_is_deleted_all_of_its_resources_and_data_will_be_permanently_deleted' => 'Երբ ձեր հաշիվը ջնջվի, նրա բոլոր ռեսուրսներն ու տվյալները ընդմիշտ կջնջվեն: Նախքան ձեր հաշիվը ջնջելը, խնդրում ենք ներբեռնել ցանկացած տվյալ կամ տեղեկատվություն, որը ցանկանում եք պահպանել:',
+    'are_you_sure_you_want_to_delete_your_account' => 'Իսկապե՞ս ուզում եք ջնջել ձեր հաշիվը:', 'once_your_account_is_deleted_all_of_its_resources_and_data_will_be_permanently_deleted_please_enter_your_password_to_confirm_you_would_like_to_permanently_delete_your_account' => 'Երբ ձեր հաշիվը ջնջվի, նրա բոլոր ռեսուրսներն ու տվյալները ընդմիշտ կջնջվեն: Խնդրում ենք մուտքագրել ձեր գաղտնաբառը՝ հաստատելու համար, որ ցանկանում եք ընդմիշտ ջնջել ձեր հաշիվը:',
+    'password_input_label' => 'Գաղտնաբառ',
+    'password_input_placeholder' => 'Գաղտնաբառ',
+    'cancel' => 'Չեղարկել',
+];

@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'profile' => 'Profile',
+    'profile_information' => 'Profile Information',
+    'update_your_accounts_profile_information_and_email_address' => "Update your account's profile information and email address.",
+    'name_input_label' => 'Name',
+    'email_input_label' => 'Email',
+    'your_email_address_is_unverified.' => 'Your email address is unverified.',
+    'click_here_to_re_send_the_verification_email' => 'Click here to re-send the verification email.',
+    'a_new_verification_link_has_been_sent_to_your_email_address' => 'A new verification link has been sent to your email address.',
+    'save' => 'Save',
+    'saved' => 'Saved.',
+    'update_password' => 'Update Password',
+    'ensure_your_account_is_using_a_long_random_password_to_stay_secure' => 'Ensure your account is using a long, random password to stay secure.',
+    'current_password_input_label' => 'Current Password',
+    'new_password_input_label' => 'New Password',
+    'confirm_password' => 'Confirm Password',
+    'delete_account' => 'Delete Account',
+    'once_your_account_is_deleted_all_of_its_resources_and_data_will_be_permanently_deleted' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Before deleting your account, please download any data or information that you wish to retain.',
+    'are_you_sure_you_want_to_delete_your_account' => 'Are you sure you want to delete your account?', 'once_your_account_is_deleted_all_of_its_resources_and_data_will_be_permanently_deleted_please_enter_your_password_to_confirm_you_would_like_to_permanently_delete_your_account' => 'Once your account is deleted, all of its resources and data will be permanently deleted. Please enter your password to confirm you would like to permanently delete your account.',
+    'password_input_label' => 'Password',
+    'password_input_placeholder' => 'Password',
+    'cancel' => 'Cancel',
+];

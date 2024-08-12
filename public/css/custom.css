@@ -1,0 +1,99 @@
+input, a, button, textarea {
+    box-shadow: none !important;
+}
+
+.icon {
+    width: 18px;
+    height: 18px;
+}
+
+.error {
+    color: red;
+    position: revert !important;
+    opacity: revert !important;
+    display: revert !important;
+    word-break: break-word !important;
+}
+
+body {
+    background: #fff !important;
+}
+
+.table-actions-icons-block {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: end;
+}
+
+.checkbox {
+    width: 20px;
+    height: 20px;
+}
+
+.post-image-upload-block .post-image {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.posts-table .post-image {
+    width: 130px;
+    height: auto;
+}
+
+.post-category-image-upload-block .post-category-image {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.post-categories-table .post-category-image {
+    width: 130px;
+    height: auto;
+}
+
+/*product categories*/
+.product-category-image-upload-block .product-category-image {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.product-categories-table .product-category-image {
+    width: 130px;
+    height: auto;
+}
+
+.product-category-image-upload-block .product-category-image {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.product-categories-table .product-category-image {
+    width: 130px;
+    height: auto;
+}
+
+input:read-only:not([type="radio"]):not([type="checkbox"]),
+textarea:read-only {
+    background-color: #ffffff !important;
+}
+
+input:read-only:not([type="radio"]):not([type="checkbox"]),
+textarea:disabled {
+    background-color: #ffffff !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .posts-table-container .buttons-group {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-categories-table-container .buttons-group {
+        display: flex;
+        flex-direction: column;
+    }
+}

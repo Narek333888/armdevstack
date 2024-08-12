@@ -1,0 +1,28 @@
+<?php
+
+return [
+    'welcome_back' => 'Բարի Վերադարձ',
+    'email' => 'Էլ․ հասցե',
+    'password' => 'Գաղտնաբառ',
+    'search' => 'Որոնել',
+    'settings' => 'Կարգավորումներ',
+    'my_profile' => 'Իմ Էջը',
+    'notification' => 'Ծանուցում',
+    'see_all_notifications' =>'Տեսնել Բոլոր Ծանուցումները',
+    'en' => 'Անգլերեն',
+    'hy' => 'Հայերեն',
+    'ru' => 'Ռուսերեն',
+    'logged_in' => '-ը(ն) մուտք գործեց։',
+    'invalid_model_or_model_does_not_use_soft_deletes_trait' => 'Invalid model class or model does not use SoftDeletes trait.',
+    'id' => 'Id',
+    'deleted_at' => 'Deleted At',
+    'restore' => 'Restore',
+    'delete_permanently' => 'Delete Permanently',
+    'deleted_successfully' => 'Deleted Successfully',
+    'restored_successfully' => 'Restored Successfully',
+    'delete_all' => 'Delete All',
+    'permanently_delete' => 'Permanently Delete',
+    'are_you_sure' => 'Are you sure?',
+    'restore_all' => 'Restore All',
+    'type' => 'Type',
+];
