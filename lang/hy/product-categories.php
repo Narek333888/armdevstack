@@ -4,6 +4,7 @@ return [
     'id' => 'Id',
     'name' => 'Name',
     'short_description' => 'Կարճ Նկարագրություն',
+    'product_category' => 'Կատեգորիա',
     'description' => 'Նկարագրություն',
     'created_at' => 'Ստեղծվել Է',
     'posts' => 'Հրապարակումներ',

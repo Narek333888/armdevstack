@@ -2,7 +2,7 @@
 
 return [
     'id' => 'Id',
-    'name' => 'Name',
+    'name' => 'Имя',
     'short_description' => 'Краткое Описание',
     'description' => 'Описание',
     'created_at' => 'Создан',
@@ -10,6 +10,7 @@ return [
     'create_new' => 'Создать Новый',
     'go_back' => 'Назад',
     'post_categories' => 'Post Categories',
+    'post_category' => 'Категория',
 
     'view_icon_link_title' => 'Посмотреть',
     'edit_icon_link_title' => 'Редактировать',

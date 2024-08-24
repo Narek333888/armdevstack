@@ -50,15 +50,6 @@ class ProductCategoriesService
     }
 
     /**
-     * @param Product $product
-     * @return array
-     */
-    public function getAttachedProductCategories(Product $product): array
-    {
-        return $this->productCategoriesRepository->getAttached($product);
-    }
-
-    /**
      * @param int $id
      * @return Builder|ProductCategory
      */
@@ -87,6 +78,7 @@ class ProductCategoriesService
         $imageNewName = uniqid(date('dmYHis')) . '.' . $image->getClientOriginalExtension();
         $data['imageNewName'] = $imageNewName;
         $data['imageOriginalName'] = $imageOriginalName;
+        $data['active'] = boolval($data['active']);
 
         $productCategory = $this->productCategoriesRepository->create($data);
 

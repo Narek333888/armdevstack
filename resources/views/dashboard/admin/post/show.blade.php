@@ -7,7 +7,7 @@
 <x-dashboard-layout title="{{ $title = 'Post|Show' }}">
     <div class="mt-1 p-3 col-sm-12 col-xl-12 col-lg-12 col-md-12">
         <div class="bg-light_ rounded h-100 p-4">
-            <h6 class="mb-4">{{ __('posts.edit.edit_post') }} - {{ $post->postText->title }}</h6>
+            <h6 class="mb-4">{{ __('posts.post') }} - {{ $post->postText->title }}</h6>
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">

@@ -37,6 +37,7 @@ class ProductCategoryUpdateRequest extends FormRequest
             'nameRu' => ['required', 'string'],
             'image'   => ['nullable', 'image', 'max:2048'],
             'active'  => ['nullable'],
+            'showInHome'  => ['nullable'],
 
             'descriptionHy' => ['required', 'string'],
             'descriptionEn' => ['required', 'string'],

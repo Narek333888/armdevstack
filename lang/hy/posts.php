@@ -3,6 +3,7 @@
 return [
     'id' => 'Id',
     'title' => 'Վերնագիր',
+    'post' => 'Հրապարակում',
     'short_description' => 'Կարճ Նկարագրություն',
     'description' => 'Նկարագրություն',
     'created_at' => 'Ստեղծվել Է',

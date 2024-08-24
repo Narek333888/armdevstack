@@ -3,6 +3,6 @@
 return [
     App\Providers\AppServiceProvider::class,
     App\Providers\MailConfigServiceProvider::class,
-    App\Providers\RepositoryServiceProvider::class,
+    App\Providers\ServiceContainerProvider::class,
     Spatie\Permission\PermissionServiceProvider::class,
 ];

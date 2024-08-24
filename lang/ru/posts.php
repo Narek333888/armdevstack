@@ -3,6 +3,7 @@
 return [
     'id' => 'Id',
     'title' => 'Заголовок',
+    'post' => 'Пост',
     'short_description' => 'Краткое Описание',
     'description' => 'Описание',
     'created_at' => 'Создан',

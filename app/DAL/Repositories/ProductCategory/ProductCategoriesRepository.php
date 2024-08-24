@@ -3,7 +3,6 @@
 namespace App\DAL\Repositories\ProductCategory;
 
 use App\DAL\Repositories\ProductCategory\Interfaces\IProductCategoriesRepository;
-use App\Models\Product;
 use App\Models\ProductCategory;
 use App\Models\ProductCategoryText;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -58,15 +57,6 @@ class ProductCategoriesRepository implements IProductCategoriesRepository
         return ProductCategory::query()
             ->whereIn('id', $ids)
             ->get();
-    }
-
-    /**
-     * @param Product $product
-     * @return array
-     */
-    public function getAttached(Product $product): array
-    {
-        return $product->categories->pluck('id')->toArray();
     }
 
     /**

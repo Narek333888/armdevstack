@@ -35,11 +35,12 @@ class PostUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'active'  => ['nullable'],
+
             'titleHy' => ['required', 'string'],
             'titleEn' => ['required', 'string'],
             'titleRu' => ['required', 'string'],
             'image'   => ['nullable', 'image', 'max:2048'],
-            'active'  => ['nullable'],
 
             'categoryIds' => ['required', 'array'],
 

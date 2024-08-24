@@ -3,6 +3,7 @@
 return [
     'id' => 'Id',
     'title' => 'Title',
+    'post' => 'Post',
     'short_description' => 'Short Description',
     'description' => 'Description',
     'created_at' => 'Created At',
@@ -17,28 +18,28 @@ return [
     'soft_delete_icon_link_title' => 'Move To Trash',
 
     'alert' => [
-        'are_you_sure' => 'Are You Sure?',
+        'are_you_sure' => 'Are You Sure',
 
-        'deleted_successfully' => 'Deleted successfully',
-        'created_successfully' => 'Created successfully',
-        'updated_successfully' => 'Updated successfully',
-        'copied_successfully' => 'Copied successfully',
+        'deleted_successfully' => 'Deleted Successfully',
+        'created_successfully' => 'Created Successfully',
+        'updated_successfully' => 'Updated Successfully',
+        'copied_successfully' => 'Copied Successfully',
         'soft_deleted_successfully' => 'Moved to trash successfully',
 
-        'please_select_at_least_one_post_to_delete' => 'Please select at least one post to delete.',
-        'something_went_wrong' => 'Something went wrong.',
+        'please_select_at_least_one_post_to_delete' => 'Please Select At Least One Post To Delete.',
+        'something_went_wrong' => 'Something Went Wrong.',
 
         'restored_successfully' => 'Restored Successfully.',
     ],
 
     'index' => [
         'image' => 'Image',
-        'active' => 'Is Active',
+        'active' => 'Active',
     ],
 
     'show' => [
         'go_back' => 'Go Back',
-        'active' => 'Is Active',
+        'active' => 'Active',
         'edit_post' => 'Edit Post',
     ],
 
@@ -63,7 +64,7 @@ return [
         'short_description_en_input_placeholder' => 'English Short Description',
         'short_description_ru_input_placeholder' => 'Russian Short Description',
 
-        'description_hy_input_placeholder' => 'Armenian Description',
+        'description_hy_input_placeholder' => 'Russian Description',
         'description_en_input_placeholder' => 'English Description',
         'description_ru_input_placeholder' => 'Russian Description',
 
@@ -77,33 +78,33 @@ return [
     ],
 
     'edit' => [
-        'title_hy_input_label' => 'Armenian title',
-        'title_en_input_label' => 'English title',
-        'title_ru_input_label' => 'Russian title',
+        'title_hy_input_label' => 'Armenian Title',
+        'title_en_input_label' => 'English Title',
+        'title_ru_input_label' => 'Russian Title',
 
-        'seo_url_hy_input_label' => 'Armenian seo url',
-        'seo_url_en_input_label' => 'English seo url',
-        'seo_url_ru_input_label' => 'Russian seo url',
+        'seo_url_hy_input_label' => 'Armenian Seo Url',
+        'seo_url_en_input_label' => 'English Seo Url',
+        'seo_url_ru_input_label' => 'Russian Seo Url',
 
-        'title_hy_input_placeholder' => 'Armenian title',
-        'title_en_input_placeholder' => 'English title',
-        'title_ru_input_placeholder' => 'Russian title',
+        'title_hy_input_placeholder' => 'Armenian Title',
+        'title_en_input_placeholder' => 'English Title',
+        'title_ru_input_placeholder' => 'Russian Title',
 
-        'short_description_hy_input_label' => 'Armenian short description',
-        'short_description_en_input_label' => 'English short description',
-        'short_description_ru_input_label' => 'Russian short description',
+        'short_description_hy_input_label' =>  'Armenian Short description',
+        'short_description_en_input_label' => 'English Short description',
+        'short_description_ru_input_label' => 'Russian Short description',
 
-        'description_hy_input_label' => 'Armenian description',
+        'description_hy_input_label' => 'Armenian Description',
         'description_en_input_label' => 'English description',
         'description_ru_input_label' => 'Russian description',
 
-        'short_description_hy_input_placeholder' => 'Armenian short description',
-        'short_description_en_input_placeholder' => 'English short description',
-        'short_description_ru_input_placeholder' => 'Russian short description',
+        'short_description_hy_input_placeholder' => 'Armenian Short Description',
+        'short_description_en_input_placeholder' => 'English Short Description',
+        'short_description_ru_input_placeholder' => 'Russian Short Description',
 
-        'description_hy_input_placeholder' => 'Armenian description',
-        'description_en_input_placeholder' => 'English description',
-        'description_ru_input_placeholder' => 'Russian description',
+        'description_hy_input_placeholder' => 'Armenian Description',
+        'description_en_input_placeholder' => 'English Description',
+        'description_ru_input_placeholder' => 'Russian Description',
 
         'edit_post' => 'Edit Post',
 
@@ -121,23 +122,23 @@ return [
     ],
 
     'validation' => [
-        'image_required' => 'The image field is required',
-        'image_image' => 'The image field must be an image',
+        'image_required' => 'Image required',
+        'image_image' => 'Image must be an image',
 
         'post_categories_required' => 'The post categories field is required',
 
         'active_integer' => 'The active field must be an integer',
 
-        'title_hy_required' => 'The armenian title field is required',
-        'title_en_required' => 'The english title field is required',
-        'title_ru_required' => 'The russian title field is required',
+        'title_hy_required' => 'Armenian title is required',
+        'title_en_required' => 'English title is required',
+        'title_ru_required' => 'Russian title is required',
 
-        'short_description_hy_required' => 'The armenian short description field is required',
-        'short_description_en_required' => 'The english short description field is required',
-        'short_description_ru_required' => 'The russian short description field is required',
+        'short_description_hy_required' => 'Armenian Short Description Is Required',
+        'short_description_en_required' => 'English Short Description Is Required',
+        'short_description_ru_required' => 'Russian Short Description Is Required',
 
-        'description_hy_required' => 'The armenian description field is required',
-        'description_en_required' => 'The english description field is required',
-        'description_ru_required' => 'The russian description field is required',
+        'description_hy_required' => 'Armenian Description Is Required',
+        'description_en_required' => 'English Short Description Is Required',
+        'description_ru_required' => 'Russian Short Description Is Required',
     ],
 ];

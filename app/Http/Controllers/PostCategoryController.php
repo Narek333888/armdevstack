@@ -60,7 +60,7 @@ class PostCategoryController extends Controller
      */
     public function store(PostCategoryStoreRequest $request): RedirectResponse
     {
-        $data = $request->validated() + ['active' => $request->boolean('active')];
+        $data = $request->validated();
 
         $this->postCategoriesService->createPostCategory($data);
 

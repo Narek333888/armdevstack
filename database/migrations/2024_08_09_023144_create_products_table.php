@@ -14,11 +14,14 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('active')->default(1);
-            $table->tinyInteger('show_in_home')->default(0);
-            $table->string('thumbnail_image');
             $table->foreignIdFor(ProductCategory::class)->constrained()->cascadeOnDelete();
+            $table->tinyInteger('active')->default(0);
+            $table->tinyInteger('show_in_home')->default(0);
+            $table->string('youtube_url')->nullable()->default(null);
             $table->decimal('price');
+            $table->string('image')->nullable();
+            $table->string('image_original_name')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

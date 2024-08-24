@@ -2,7 +2,7 @@
 
 return [
     'id' => 'Id',
-    'name' => 'Name',
+    'name' => 'Անուն',
     'short_description' => 'Կարճ Նկարագրություն',
     'description' => 'Նկարագրություն',
     'created_at' => 'Ստեղծվել Է',
@@ -10,6 +10,7 @@ return [
     'create_new' => 'Ստեղծել Նորը',
     'go_back' => 'Գնալ Հետ',
     'post_categories' => 'Post Categories',
+    'post_category' => 'Կատեգորիա',
 
     'view_icon_link_title' => 'Տեսնել',
     'edit_icon_link_title' => 'Փոփոխել',

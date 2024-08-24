@@ -1,13 +1,13 @@
 @php
     use Illuminate\Support\Facades\Storage;
 
-    $image = $productCategory->image ? Storage::url('productCategory/' . $productCategory->image) : asset('images/post_thumbnail.svg');
+    $image = $productCategory->image ? Storage::url('productCategories/' . $productCategory->image) : asset('images/post_thumbnail.svg');
 @endphp
 
 <x-dashboard-layout title="{{ $title = 'Product Category|Show' }}">
     <div class="mt-1 p-3 col-sm-12 col-xl-12 col-lg-12 col-md-12">
         <div class="bg-light_ rounded h-100 p-4">
-            <h6 class="mb-4">{{ __('product-categories.edit.edit_product_category') }} - {{ $productCategory->productCategoryText->name }}</h6>
+            <h6 class="mb-4">{{ __('product-categories.product_category') }} - {{ $productCategory->productCategoryText->name }}</h6>
 
             <nav>
                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
@@ -25,7 +25,7 @@
 
             <div class="product-category-image-upload-block">
                 <label for="productCategoryEditImage" class="form-label mt-4">
-                    <img class="product-category-image" src="{{ $image }}" alt="{{ $productCategory->productCategoryText->title }}">
+                    <img class="product-category-image" src="{{ asset($image) }}" alt="{{ $productCategory->productCategoryText->title }}">
                 </label>
             </div>
 

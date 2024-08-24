@@ -61,7 +61,7 @@ class ProductCategoryController extends Controller
      */
     public function store(ProductCategoryStoreRequest $request): RedirectResponse
     {
-        $data = $request->validated() + ['active' => $request->boolean('active')];
+        $data = $request->validated();
 
         $this->productCategoriesService->createProductCategory($data);
 

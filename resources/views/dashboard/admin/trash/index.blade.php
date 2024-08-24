@@ -4,8 +4,8 @@
             @if(!$countOfTrashedItems)
                 <h2>{{ __('trash.trash_is_empty') }}</h2>
             @else
-                <div class="mb-3">
-                    <form action="" method="post" class="d-inline">
+                {{--<div class="mb-3">
+                    <form action="{{ route('') }}" method="post" class="d-inline">
                         @csrf
                         @method('DELETE')
 
@@ -17,21 +17,25 @@
 
                         <button type="submit" class="btn btn-primary shadow-none btn-sm">{{ __('general.restore_all') }}</button>
                     </form>
-                </div>
+                </div>--}}
 
                 @foreach ($models as $modelName => $items)
                     @foreach ($items as $key => $item)
                         <div class="col-md-4 mb-3">
                             @if($modelName === 'App\Models\Post')
-                                @include('trash.post.index')
+                                @include('dashboard.admin.trash.post.index')
                             @endif
 
                             @if($modelName === 'App\Models\PostCategory')
-                                @include('trash.post-category.index')
+                                @include('dashboard.admin.trash.post-category.index')
                             @endif
 
                             @if($modelName === 'App\Models\ProductCategory')
-                                @include('trash.product-category.index')
+                                @include('dashboard.admin.trash.product-category.index')
+                            @endif
+
+                            @if($modelName === 'App\Models\Product')
+                                @include('dashboard.admin.trash.product.index')
                             @endif
                         </div>
                     @endforeach

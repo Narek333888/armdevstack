@@ -10,6 +10,7 @@ return [
     'create_new' => 'Create New',
     'go_back' => 'Go Back',
     'post_categories' => 'Post Categories',
+    'post_category' => 'Category',
 
     'view_icon_link_title' => 'View',
     'edit_icon_link_title' => 'Edit',

@@ -77,6 +77,7 @@ class PostsService
         $imageNewName = uniqid(date('dmYHis')) . '.' . $image->getClientOriginalExtension();
         $data['imageNewName'] = $imageNewName;
         $data['imageOriginalName'] = $imageOriginalName;
+        $data['active'] = boolval($data['active']);
 
         $post = $this->postsRepository->create($data);
 

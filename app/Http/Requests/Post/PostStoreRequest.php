@@ -35,6 +35,8 @@ class PostStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'active' => ['nullable'],
+
             'titleHy' => ['required', 'string'],
             'titleEn' => ['required', 'string'],
             'titleRu' => ['required', 'string'],

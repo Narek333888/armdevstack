@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->tinyInteger('active')->default(0);
-            $table->string('youtube_url');
+            $table->string('youtube_url')->nullable()->default(null);
+            $table->softDeletes();
             $table->timestamps();
         });
     }

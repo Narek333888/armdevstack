@@ -4,6 +4,7 @@ return [
     'id' => 'Id',
     'name' => 'Name',
     'short_description' => 'Краткое Описание',
+    'product_category' => 'Категория',
     'description' => 'Описание',
     'created_at' => 'Создан',
     'posts' => 'Посты',

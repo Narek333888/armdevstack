@@ -68,7 +68,7 @@ class PostController extends Controller
      */
     public function store(PostStoreRequest $request): RedirectResponse
     {
-        $data = $request->validated() + ['active' => $request->boolean('active')];
+        $data = $request->validated();
 
         $this->postsService->createPost($data);
 

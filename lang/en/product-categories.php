@@ -4,6 +4,7 @@ return [
     'id' => 'Id',
     'name' => 'Name',
     'short_description' => 'Short Description',
+    'product_category' => 'Category',
     'description' => 'Description',
     'created_at' => 'Created At',
     'posts' => 'Posts',

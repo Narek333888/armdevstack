@@ -88,6 +88,7 @@ class PostCategoriesService
         $imageNewName = uniqid(date('dmYHis')) . '.' . $image->getClientOriginalExtension();
         $data['imageNewName'] = $imageNewName;
         $data['imageOriginalName'] = $imageOriginalName;
+        $data['active'] = boolval($data['active']);
 
         $postCategory = $this->postCategoriesRepository->create($data);
 

@@ -6,7 +6,7 @@
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
                 <img class="rounded-circle" src="{{ asset('dashboard/img/user.jpg') }}" alt="" style="width: 40px; height: 40px;">
-                <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
+                <div class="bg-success rounded-circle border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
             </div>
             <div class="ms-3">
                 <h6 class="mb-0">{{ auth()->user()->name }}</h6>
@@ -18,6 +18,8 @@
             <x-nav-link href="{{ route('post-category.index') }}" :active="request()->routeIs('post-category.index')">{{ __('navigation.post_categories') }}</x-nav-link>
             <x-nav-link href="{{ route('post.index') }}" :active="request()->routeIs('post.index')">{{ __('posts.posts') }}</x-nav-link>
             <x-nav-link href="{{ route('product-category.index') }}" :active="request()->routeIs('product-category.index')">{{ __('product-categories.product_categories') }}</x-nav-link>
+            <x-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">{{ __('products.products') }}</x-nav-link>
+            <x-nav-link href="{{ route('weather.show') }}" :active="request()->routeIs('weather.show')">{{ __('weather.weather') }}</x-nav-link>
             <x-nav-link href="{{ route('mailer-settings.index') }}" :active="request()->routeIs('mailer-settings.index')">{{ __('navigation.mailer_settings') }}</x-nav-link>
             <x-nav-link href="{{ route('chat') }}" :active="request()->routeIs('chat')">{{ __('navigation.chat') }}</x-nav-link>
             <x-nav-link href="{{ route('trash.index') }}" :active="request()->routeIs('trash.index')">{{ __('navigation.trash') }}</x-nav-link>

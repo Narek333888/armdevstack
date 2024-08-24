@@ -41,6 +41,7 @@
                                     {{--<th>
                                         <input type="checkbox" class="select-all-posts" id="selectAllPosts">
                                     </th>--}}
+                                    <th></th>
                                     <th scope="col">#</th>
                                     <th scope="col">{{ __('posts.title') }}</th>
                                     <th scope="col">{{ __('posts.short_description') }}</th>

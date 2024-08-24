@@ -55,6 +55,8 @@ class CacheHelper
     {
         $pageCount = ceil($modelClass::query()->count() / $perPage);
 
+        if (intval($pageCount) === 0) $pageCount = 1;
+
         for ($i = 1; $i <= $pageCount; $i++)
         {
             Cache::delete($key . $i);

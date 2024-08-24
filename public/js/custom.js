@@ -306,6 +306,152 @@ const initActiveTabs = (tabSelector, contentSelector) => {
     });
 }
 
+// Weather forecast widget
+/**
+ * Update weather data values
+ * @param data
+ * @param mappings
+ */
+const updateWeatherData = (data, mappings) => {
+    for (let key in mappings) {
+        if (mappings.hasOwnProperty(key) && data[key] !== undefined) {
+            let element = $(mappings[key].selector);
+
+            if (mappings[key].type === 'text') {
+                element.text(data[key]);
+            }
+
+            if (mappings[key].type === 'attribute') {
+                element.attr(mappings[key].attribute, data[key]);
+            }
+        }
+    }
+}
+
+/**
+ * Set default query string param
+ * @param key
+ * @param value
+ */
+const setDefaultQueryParam = (key, value) => {
+    let url = new URL(window.location.href);
+
+    if (!url.searchParams.has(key)) {
+        url.searchParams.set(key, value);
+        history.replaceState(null, '', url.toString());
+    }
+}
+
+/**
+ * Update query string param
+ * @param key
+ * @param value
+ */
+const updateQueryStringParam = (key, value) => {
+    let url = new URL(window.location.href);
+
+    if (value) {
+        url.searchParams.set(key, value);
+    } else {
+        url.searchParams.delete(key);
+    }
+
+    history.replaceState(null, '', url.toString());
+}
+
+/**
+ * Add query param
+ * @param key
+ */
+const getQueryParam = (key) => {
+    let url = new URL(window.location.href);
+
+    return url.searchParams.get(key);
+}
+
+/**
+ * Add query string param
+ * @param key
+ * @param value
+ */
+const addQueryParam = (key, value) => {
+    let url = new URL(window.location.href);
+
+    if (value) {
+        url.searchParams.append(key, value);
+    }
+
+    history.replaceState(null, '', url.toString());
+}
+
+/**
+ * Attach event to element
+ * @param eventType
+ * @param selector
+ * @param callback
+ */
+const attachEvent = (eventType, selector, callback) => {
+    $(document).on(eventType, selector, function(event) {
+        callback($(this), event);
+    });
+}
+
+/**
+ * Clear weather cache
+ * @param url
+ */
+const clearWeatherCache = (url) => {
+    axios.get(url).then(() => {
+        console.log('Cache Cleared');
+    }).catch((error) => {
+        console.log(error);
+    });
+}
+
+/**
+ * Handle radio change.
+ * @param radioName
+ * @param callback
+ */
+const handleRadioChange = (radioName, callback) => {
+    $('input[name="' + radioName + '"]').on('change', function() {
+        if ($(this).is(':checked')) {
+            callback($(this).val());
+        }
+    });
+}
+
+/**
+ * Fetch weather api data
+ * @param url
+ * @param method
+ * @param formSelector
+ * @param cityNameSelector
+ * @param unitOfMeasurementRadioNameSelector
+ * @param responseMappings
+ */
+const fetchWeatherApiData = (url, method, formSelector, cityNameSelector, unitOfMeasurementRadioNameSelector, responseMappings) => {
+    setDefaultQueryParam('unitOfMeasurement', 'celsius');
+
+    $(formSelector).on('submit', function(event) {
+        event.preventDefault();
+
+        let city = $(`input[name="${cityNameSelector}"]`).val();
+        let unitOfMeasurement = $(`input[name="${unitOfMeasurementRadioNameSelector}"]:checked`).val();
+
+        axios.get(url, {
+            params: {
+                city: city,
+                unitOfMeasurement: unitOfMeasurement,
+            }
+        }).then(function(response) {
+            updateWeatherData(response.data, responseMappings);
+        }).catch(function(error) {
+            console.error('Error:', error);
+        });
+    });
+}
+
 // ======================functions call======================
 
 $(document).ready(() => {

@@ -76,6 +76,29 @@ body {
     height: auto;
 }
 
+/*Products*/
+.product-image-upload-block .product-image {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.products-table .product-image {
+    width: 130px;
+    height: auto;
+}
+
+.product-category-image-upload-block .product-category-image {
+    width: 130px;
+    height: auto;
+    cursor: pointer;
+}
+
+.product-categories-table .product-category-image {
+    width: 130px;
+    height: auto;
+}
+
 input:read-only:not([type="radio"]):not([type="checkbox"]),
 textarea:read-only {
     background-color: #ffffff !important;
