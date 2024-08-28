@@ -5,7 +5,7 @@
 @endphp
 
 <x-dashboard-layout title="{{ $title = 'Product|Show' }}">
-    <div class="mt-1 p-3 col-sm-12 col-xl-12 col-lg-12 col-md-12">
+    <div class="show-content product-show mt-1 p-3 col-sm-12 col-xl-12 col-lg-12 col-md-12">
         <div class="bg-light_ rounded h-100 p-4">
             <h6 class="mb-4">{{ __('products.product') }} - {{ $product->productText->name }}</h6>
 
@@ -37,6 +37,12 @@
             <div class="form-check form-switch">
                 <input id="showInHomeCheckbox" class="form-check-input" type="checkbox" role="switch" @php echo $product->show_in_home ? 'checked' : '' @endphp disabled>
                 <label>{{ __('products.show_in_home') }}</label>
+            </div>
+
+            <h6 class="text-muted attached-categories-title attached-post-categories-title">{{ __('products.category') }}</h6>
+
+            <div class="product-category attached-categories">
+                <div class="product-category attached-category">{{ $product->category->productCategoryText->name }}</div>
             </div>
 
             <div class="form-floating mt-3">

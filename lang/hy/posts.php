@@ -4,10 +4,12 @@ return [
     'id' => 'Id',
     'title' => 'Վերնագիր',
     'post' => 'Հրապարակում',
+    'categories' => 'Attached Categories',
     'short_description' => 'Կարճ Նկարագրություն',
     'description' => 'Նկարագրություն',
     'created_at' => 'Ստեղծվել Է',
     'posts' => 'Հրապարակումներ',
+    'category' => 'Category',
     'create_new' => 'Ստեղծել Նորը',
     'go_back' => 'Գնալ Հետ',
 

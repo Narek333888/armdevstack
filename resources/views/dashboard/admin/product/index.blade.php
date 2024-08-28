@@ -45,6 +45,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">{{ __('products.name') }}</th>
                                 <th scope="col">{{ __('products.short_description') }}</th>
+                                <th scope="col">{{ __('products.category') }}</th>
                                 <th scope="col">{{ __('products.price') }}</th>
                                 <th scope="col">{{ __('products.index.active') }}</th>
                                 <th scope="col">{{ __('products.show_in_home') }}</th>
@@ -71,6 +72,7 @@
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->productText->name }}</td>
                                     <td>{{ Str::words($product->productText->short_description, 50) }}</td>
+                                    <td>{{ $product->category->productCategoryText->name }}</td>
                                     <td>
                                         <div class="d-flex d-inline-flex">
                                             <div>{{ $product->price }}</div>&nbsp;

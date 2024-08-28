@@ -25,4 +25,13 @@ return [
     'are_you_sure' => 'Are you sure?',
     'restore_all' => 'Restore All',
     'type' => 'Type',
+
+    'navbar' => [
+        'home' => 'Home',
+        'pages' => 'Pages',
+        'posts' => 'Posts',
+        'products' => 'Products',
+        'search_button_text' => 'Search',
+        'login_button_text' => 'Login',
+    ],
 ];

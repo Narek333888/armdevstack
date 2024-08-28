@@ -10,6 +10,7 @@ return [
     'description' => 'Նկարագրություն',
     'created_at' => 'Ստեղծվել Է',
     'products' => 'Ապրանքներ',
+    'category' => 'Կատեգորիա',
     'create_new' => 'Ստեղծել Նորը',
     'go_back' => 'Գնալ Հետ',
 

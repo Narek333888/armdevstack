@@ -19,7 +19,7 @@ class AppLayout extends Component
      */
     public function render(): View
     {
-        return view('layouts.app', [
+        return view('layouts.dashboard', [
             'title' => $this->title,
         ]);
     }

@@ -113,7 +113,7 @@
                 updateQueryStringParam('unitOfMeasurement', 'farenheit');
             }
 
-            clearWeatherCache('{{ config('app.url') }}' + '/{{ config('app.locale') }}' + '/weather/clear-cache/' + getQueryParam('city'));
+            clearWeatherCache('{{ config('app.url') }}' + '/{{ config('app.locale') }}' + '/dashboard/weather/clear-cache/' + getQueryParam('city'));
         });
 
         attachEvent('input', $('.weather-api-form-city'), () => {

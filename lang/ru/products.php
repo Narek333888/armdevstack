@@ -10,6 +10,7 @@ return [
     'description' => 'Описание',
     'created_at' => 'Создан',
     'products' => 'Products',
+    'category' => 'Attached Category',
     'create_new' => 'Создать Новый',
     'go_back' => 'Назад',
 

@@ -31,6 +31,7 @@ body {
     height: 20px;
 }
 
+/*Posts*/
 .post-image-upload-block .post-image {
     width: 130px;
     height: auto;
@@ -42,6 +43,7 @@ body {
     height: auto;
 }
 
+/*Post categories*/
 .post-category-image-upload-block .post-category-image {
     width: 130px;
     height: auto;
@@ -109,6 +111,33 @@ textarea:disabled {
     background-color: #ffffff !important;
 }
 
+/*Show pages*/
+.show-content .attached-categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.show-content .attached-categories .attached-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid gray;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+
+.show-content .attached-categories-title {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/*Front*/
+.front-navbar .front-navbar-login-form-content .login-form {
+    height: 30px;
+}
+
+/*Media*/
 @media only screen and (max-width: 768px) {
     .posts-table-container .buttons-group {
         display: flex;

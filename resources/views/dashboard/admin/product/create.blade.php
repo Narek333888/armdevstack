@@ -43,9 +43,11 @@
                 <div class="form-floating mt-3 mb-3">
                     <select class="product-categories-select form-select @error('categoryId') is-invalid @enderror" name="categoryId">
                         @foreach($productCategories as $key => $productCategory)
-                            <option value="{{ $productCategory->id }}">
-                                {{ $productCategory->productCategoryText->name }}
-                            </option>
+                            @if($productCategory->is_active)
+                                <option value="{{ $productCategory->id }}">
+                                    {{ $productCategory->productCategoryText->name }}
+                                </option>
+                            @endif
                         @endforeach
                     </select>
 

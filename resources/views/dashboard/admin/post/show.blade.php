@@ -5,7 +5,7 @@
 @endphp
 
 <x-dashboard-layout title="{{ $title = 'Post|Show' }}">
-    <div class="mt-1 p-3 col-sm-12 col-xl-12 col-lg-12 col-md-12">
+    <div class="show-content post-show mt-1 p-3 col-sm-12 col-xl-12 col-lg-12 col-md-12">
         <div class="bg-light_ rounded h-100 p-4">
             <h6 class="mb-4">{{ __('posts.post') }} - {{ $post->postText->title }}</h6>
 
@@ -24,7 +24,7 @@
             </nav>
 
             <div class="post-image-upload-block">
-                <label for="postEditImage" class="form-label mt-4">
+                <label for="postEditImage" class="form-label mt-3">
                     <img class="post-image" src="{{ $image }}" alt="{{ $post->postText->title }}">
                 </label>
             </div>
@@ -32,6 +32,14 @@
             <div class="form-check form-switch">
                 <input id="isActiveCheckbox" class="form-check-input" type="checkbox" role="switch" @php echo $post->active ? 'checked' : '' @endphp disabled>
                 <label>{{ __('posts.show.active') }}</label>
+            </div>
+
+            <h6 class="text-muted attached-categories-title attached-post-categories-title">{{ __('posts.categories') }}</h6>
+
+            <div class="post-categories attached-categories">
+                @foreach($post->categories as $key => $category)
+                    <div class="post-category attached-category">{{ $category->postCategoryText->name }}</div>
+                @endforeach
             </div>
 
             <div class="tab-content pt-3" id="nav-tabContent">

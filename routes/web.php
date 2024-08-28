@@ -1,14 +1,15 @@
 <?php
 
-use App\Http\Controllers\MailerSettingController;
-use App\Http\Controllers\MainController;
-use App\Http\Controllers\PostCategoryController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\ProductCategoryController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TrashController;
-use App\Http\Controllers\WeatherForecastController;
+use app\Http\Controllers\Dashboard\MailerSettingController;
+use app\Http\Controllers\Dashboard\MainController;
+use app\Http\Controllers\Dashboard\PostCategoryController;
+use app\Http\Controllers\Dashboard\PostController;
+use app\Http\Controllers\Dashboard\ProductCategoryController;
+use app\Http\Controllers\Dashboard\ProductController;
+use app\Http\Controllers\Dashboard\ProfileController;
+use app\Http\Controllers\Dashboard\TrashController;
+use app\Http\Controllers\Dashboard\WeatherForecastController;
+use App\Http\Controllers\Frontend\SiteController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -32,7 +33,9 @@ Route::get('/refresh-app', function () {
 })->middleware('auth');
 
 Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedirect', 'localizationRedirect'])->group(function () {
-    Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/', [SiteController::class, 'index'])->name('site.index');
+
+    Route::middleware(['auth', 'verified'])->prefix('/dashboard')->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('main.index');
 
         Route::prefix('weather')->group(function () {
@@ -119,7 +122,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
         });
     });
 
-    Route::middleware('auth')->group(function () {
+    Route::middleware('auth')->prefix('/dashboard')->group(function () {
         Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
         Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
         Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

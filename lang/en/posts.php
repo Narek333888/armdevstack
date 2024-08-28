@@ -4,10 +4,12 @@ return [
     'id' => 'Id',
     'title' => 'Title',
     'post' => 'Post',
+    'categories' => 'Attached Categories',
     'short_description' => 'Short Description',
     'description' => 'Description',
     'created_at' => 'Created At',
     'posts' => 'Posts',
+    'category' => 'Category',
     'create_new' => 'Create New',
     'go_back' => 'Go Back',
 

@@ -10,6 +10,7 @@ return [
     'description' => 'Description',
     'created_at' => 'Created At',
     'products' => 'Products',
+    'category' => 'Attached Category',
     'create_new' => 'Create New',
     'go_back' => 'Go Back',
 

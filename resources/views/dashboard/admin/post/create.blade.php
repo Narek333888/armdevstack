@@ -37,9 +37,11 @@
                 <div class="form-floating mt-3 mb-3">
                     <select class="post-categories-select form-select @error('categoryIds') is-invalid @enderror" name="categoryIds[]" multiple="multiple">
                         @foreach($postCategories as $key => $postCategory)
-                            <option value="{{ $postCategory->id }}">
-                                {{ $postCategory->postCategoryText->name }}
-                            </option>
+                            @if($postCategory->is_active)
+                                <option value="{{ $postCategory->id }}">
+                                    {{ $postCategory->postCategoryText->name }}
+                                </option>
+                            @endif
                         @endforeach
                     </select>
 

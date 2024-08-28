@@ -20,7 +20,7 @@ class ProductsRepository implements IProductsRepository
     public function getAll(): Collection
     {
         return Product::query()
-            ->with(['productText'])
+            ->with(['productText', 'category'])
             ->get();
     }
 
@@ -32,7 +32,7 @@ class ProductsRepository implements IProductsRepository
     public function getAllPaginated(int $perPage = 10): LengthAwarePaginator
     {
         return Product::query()
-            ->with(['productText'])
+            ->with(['productText', 'category'])
             ->paginate($perPage);
     }
 
@@ -67,7 +67,7 @@ class ProductsRepository implements IProductsRepository
     public function getById(int $id): Builder|Product
     {
         return Product::query()
-            ->with(['productText'])
+            ->with(['productText', 'category'])
             ->find($id);
     }
 

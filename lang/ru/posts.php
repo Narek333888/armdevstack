@@ -4,10 +4,12 @@ return [
     'id' => 'Id',
     'title' => 'Заголовок',
     'post' => 'Пост',
+    'categories' => 'Attached Categories',
     'short_description' => 'Краткое Описание',
     'description' => 'Описание',
     'created_at' => 'Создан',
     'posts' => 'Посты',
+    'category' => 'Category',
     'create_new' => 'Создать Новый',
     'go_back' => 'Назад',
 
