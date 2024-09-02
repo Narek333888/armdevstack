@@ -1,14 +1,17 @@
 <?php
 
 return [
-    'dashboard' => 'Կառավարման Վահանակ',
-    'home' => 'Գլխավոր',
-    'posts' => 'Հրապարակումներ',
+    'dashboard' => 'Dashboard',
+    'home' => 'Home',
+    'posts' => 'Posts',
     'post_categories' => 'Post Categories',
-    'language' => 'Լեզու',
-    'profile' => 'Պրոֆիլ',
-    'chat' => 'Նամակագրություն',
-    'log_out' => 'Դուրս Գալ',
-    'mailer_settings' => 'Փոստի կարգավորումներ',
-    'trash' => 'Мусор',
+    'language' => 'Language',
+    'profile' => 'Profile',
+    'chat' => 'Chat',
+    'log_out' => 'Log Out',
+    'mailer_settings' => 'Mailer Settings',
+    'trash' => 'Trash',
+    'users' => 'Users',
+    'roles' => 'Roles',
+    'permissions' => 'Permissions',
 ];

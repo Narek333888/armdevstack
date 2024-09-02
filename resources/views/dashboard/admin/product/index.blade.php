@@ -72,7 +72,11 @@
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->productText->name }}</td>
                                     <td>{{ Str::words($product->productText->short_description, 50) }}</td>
-                                    <td>{{ $product->category->productCategoryText->name }}</td>
+                                    <td>
+                                        <div class="badge bg-info">
+                                            {{ $product->category->productCategoryText->name }}
+                                        </div>
+                                    </td>
                                     <td>
                                         <div class="d-flex d-inline-flex">
                                             <div>{{ $product->price }}</div>&nbsp;

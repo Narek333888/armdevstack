@@ -2,12 +2,15 @@
 
 use app\Http\Controllers\Dashboard\MailerSettingController;
 use app\Http\Controllers\Dashboard\MainController;
+use App\Http\Controllers\Dashboard\PermissionController;
 use app\Http\Controllers\Dashboard\PostCategoryController;
 use app\Http\Controllers\Dashboard\PostController;
 use app\Http\Controllers\Dashboard\ProductCategoryController;
 use app\Http\Controllers\Dashboard\ProductController;
 use app\Http\Controllers\Dashboard\ProfileController;
+use App\Http\Controllers\Dashboard\RoleController;
 use app\Http\Controllers\Dashboard\TrashController;
+use App\Http\Controllers\Dashboard\UserController;
 use app\Http\Controllers\Dashboard\WeatherForecastController;
 use App\Http\Controllers\Frontend\SiteController;
 use Illuminate\Support\Facades\Artisan;
@@ -38,13 +41,58 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
     Route::middleware(['auth', 'verified'])->prefix('/dashboard')->group(function () {
         Route::get('/', [MainController::class, 'index'])->name('main.index');
 
-        Route::prefix('weather')->group(function () {
+        Route::prefix('/weather')->group(function () {
             Route::get('/', [WeatherForecastController::class, 'show'])->name('weather.show');
             Route::get('/fetch-data', [WeatherForecastController::class, 'fetchData'])->name('weather.fetch');
             Route::get('/clear-cache/{key}', [WeatherForecastController::class, 'clearCache'])->name('weather.clear-cache');
         });
 
-        Route::prefix('posts')->group(function () {
+        Route::prefix('/users')->group(function () {
+            Route::get('/', [UserController::class, 'index'])->name('user.index');
+            Route::get('/create', [UserController::class, 'create'])->name('user.create');
+            Route::post('/store', [UserController::class, 'store'])->name('user.store');
+            Route::get('/{id}', [UserController::class, 'show'])->name('user.show');
+            Route::get('/{id}/edit', [UserController::class, 'edit'])->name('user.edit');
+            Route::patch('/{id}/update', [UserController::class, 'update'])->name('user.update');
+            Route::delete('/{id}/delete', [UserController::class, 'delete'])->name('user.delete');
+            Route::delete('/{id}/soft-delete', [UserController::class, 'softDelete'])->name('user.soft-delete');
+            Route::delete('/delete-multiple', [UserController::class, 'deleteMultiple'])->name('user.delete-multiple');
+            Route::delete('/soft-delete-multiple', [UserController::class, 'softDeleteMultiple'])->name('user.soft-delete-multiple');
+            Route::delete('/delete-all', [UserController::class, 'deleteAll'])->name('user.delete-all');
+            Route::delete('/soft-delete-all', [UserController::class, 'softDeleteAll'])->name('user.soft-delete-all');
+        });
+
+        Route::prefix('/roles')->group(function () {
+            Route::get('/', [RoleController::class, 'index'])->name('role.index');
+            Route::get('/create', [RoleController::class, 'create'])->name('role.create');
+            Route::post('/store', [RoleController::class, 'store'])->name('role.store');
+            Route::get('/{id}/edit', [RoleController::class, 'edit'])->name('role.edit');
+            Route::patch('/{id}/update', [RoleController::class, 'update'])->name('role.update');
+            Route::delete('/{id}/delete', [RoleController::class, 'delete'])->name('role.delete');
+            Route::delete('/{id}/soft-delete', [RoleController::class, 'softDelete'])->name('role.soft-delete');
+            Route::delete('/delete-multiple', [RoleController::class, 'deleteMultiple'])->name('role.delete-multiple');
+            Route::delete('/soft-delete-multiple', [RoleController::class, 'softDeleteMultiple'])->name('role.soft-delete-multiple');
+            Route::delete('/delete-all', [RoleController::class, 'deleteAll'])->name('role.delete-all');
+            Route::delete('/soft-delete-all', [RoleController::class, 'softDeleteAll'])->name('role.soft-delete-all');
+            Route::get('/{id}/add-permission-to-role', [RoleController::class, 'addPermissionToRole'])->name('role.add-permission-to-role');
+            Route::put('/{id}/give-permissions', [RoleController::class, 'givePermissionToRole'])->name('role.give-permission-to-role');
+        });
+
+        Route::prefix('/permissions')->group(function () {
+            Route::get('/', [PermissionController::class, 'index'])->name('permission.index');
+            Route::get('/create', [PermissionController::class, 'create'])->name('permission.create');
+            Route::post('/store', [PermissionController::class, 'store'])->name('permission.store');
+            Route::get('/{id}/edit', [PermissionController::class, 'edit'])->name('permission.edit');
+            Route::patch('/{id}/update', [PermissionController::class, 'update'])->name('permission.update');
+            Route::delete('/{id}/delete', [PermissionController::class, 'delete'])->name('permission.delete');
+            Route::delete('/{id}/soft-delete', [PermissionController::class, 'softDelete'])->name('permission.soft-delete');
+            Route::delete('/delete-multiple', [PermissionController::class, 'deleteMultiple'])->name('permission.delete-multiple');
+            Route::delete('/soft-delete-multiple', [PermissionController::class, 'softDeleteMultiple'])->name('permission.soft-delete-multiple');
+            Route::delete('/delete-all', [PermissionController::class, 'deleteAll'])->name('permission.delete-all');
+            Route::delete('/soft-delete-all', [PermissionController::class, 'softDeleteAll'])->name('permission.soft-delete-all');
+        });
+
+        Route::prefix('/posts')->group(function () {
             Route::get('/', [PostController::class, 'index'])->name('post.index');
             Route::get('/create', [PostController::class, 'create'])->name('post.create');
             Route::post('/store', [PostController::class, 'store'])->name('post.store');
@@ -60,7 +108,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::delete('/soft-delete-all', [PostController::class, 'softDeleteAll'])->name('post.soft-delete-all');
         });
 
-        Route::prefix('post-categories')->group(function () {
+        Route::prefix('/post-categories')->group(function () {
             Route::get('/', [PostCategoryController::class, 'index'])->name('post-category.index');
             Route::get('/create', [PostCategoryController::class, 'create'])->name('post-category.create');
             Route::post('/store', [PostCategoryController::class, 'store'])->name('post-category.store');
@@ -76,7 +124,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::delete('/soft-delete-all', [PostCategoryController::class, 'softDeleteAll'])->name('post-category.soft-delete-all');
         });
 
-        Route::prefix('product-categories')->group(function () {
+        Route::prefix('/product-categories')->group(function () {
             Route::get('/', [ProductCategoryController::class, 'index'])->name('product-category.index');
             Route::get('/create', [ProductCategoryController::class, 'create'])->name('product-category.create');
             Route::post('/store', [ProductCategoryController::class, 'store'])->name('product-category.store');
@@ -92,7 +140,7 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::delete('/soft-delete-all', [ProductCategoryController::class, 'softDeleteAll'])->name('product-category.soft-delete-all');
         });
 
-        Route::prefix('products')->group(function () {
+        Route::prefix('/products')->group(function () {
             Route::get('/', [ProductController::class, 'index'])->name('product.index');
             Route::get('/create', [ProductController::class, 'create'])->name('product.create');
             Route::post('/store', [ProductController::class, 'store'])->name('product.store');
@@ -108,24 +156,24 @@ Route::prefix(LaravelLocalization::setLocale())->middleware(['localeSessionRedir
             Route::delete('/soft-delete-all', [ProductController::class, 'softDeleteAll'])->name('product.soft-delete-all');
         });
 
-        Route::prefix('settings')->group(function () {
+        Route::prefix('/settings')->group(function () {
             Route::get('/mailer', [MailerSettingController::class, 'index'])->name('mailer-settings.index');
             Route::post('update-or-create', [MailerSettingController::class, 'updateOrCreate'])->name('mailer-settings.update-or-create');
         });
 
-        Route::prefix('trash')->group(function () {
+        Route::prefix('/trash')->group(function () {
             Route::get('/', [TrashController::class, 'index'])->name('trash.index');
             Route::post('/restore/{model}/{id}', [TrashController::class, 'restore'])->name('trash.restore');
             Route::post('/restore-all/{model}', [TrashController::class, 'restoreAll'])->name('trash.restore-all');
             Route::delete('/delete/{model}/{id}', [TrashController::class, 'delete'])->name('trash.delete');
             Route::delete('/delete-all/{model}', [TrashController::class, 'deleteAll'])->name('trash.delete-all');
         });
-    });
 
-    Route::middleware('auth')->prefix('/dashboard')->group(function () {
-        Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-        Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-        Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        Route::prefix('/profile')->group(function () {
+            Route::get('/', [ProfileController::class, 'edit'])->name('profile.edit');
+            Route::patch('/', [ProfileController::class, 'update'])->name('profile.update');
+            Route::delete('/', [ProfileController::class, 'destroy'])->name('profile.destroy');
+        });
     });
 });
 

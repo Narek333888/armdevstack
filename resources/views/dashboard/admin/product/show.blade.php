@@ -41,8 +41,8 @@
 
             <h6 class="text-muted attached-categories-title attached-post-categories-title">{{ __('products.category') }}</h6>
 
-            <div class="product-category attached-categories">
-                <div class="product-category attached-category">{{ $product->category->productCategoryText->name }}</div>
+            <div class="badge bg-info">
+                {{ $product->category->productCategoryText->name }}
             </div>
 
             <div class="form-floating mt-3">

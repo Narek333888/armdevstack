@@ -11,4 +11,7 @@ return [
     'log_out' => 'Log Out',
     'mailer_settings' => 'Mailer Settings',
     'trash' => 'Trash',
+    'users' => 'Users',
+    'roles' => 'Roles',
+    'permissions' => 'Permissions',
 ];

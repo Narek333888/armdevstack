@@ -6,9 +6,6 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? config('app.name') }}</title>
     <link rel="stylesheet" href="{{ App::environment('local') ? asset('css/custom.css') : asset('css/custom.min.css') }}?ver={{ filemtime(public_path(App::environment('local') ? 'css/custom.css' : 'css/custom.min.css')) }}">
-    {{--<link rel="preconnect" href="https://fonts.googleapis.com">--}}
-    {{--<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>--}}
-    {{--<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">--}}
     <link href="{{ App::environment('local') ? asset('dashboard/lib/fontawesome/css/all.css') : asset('dashboard/lib/fontawesome/css/all.min.css') }}?ver={{ App::environment('local') ? filemtime(public_path('dashboard/lib/fontawesome/css/all.css')) : filemtime(public_path('dashboard/lib/fontawesome/css/all.min.css')) }}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrapicons/font/bootstrap-icons.min.css') }}?ver={{ filemtime(public_path('lib/bootstrapicons/font/bootstrap-icons.min.css')) }}" rel="stylesheet">
     <link href="{{ App::environment('local') ? asset('dashboard/lib/owlcarousel/assets/owl.carousel.css') : asset('dashboard/lib/owlcarousel/assets/owl.carousel.min.css') }}?ver={{ filemtime(public_path(App::environment('local') ? 'dashboard/lib/owlcarousel/assets/owl.carousel.css' : 'dashboard/lib/owlcarousel/assets/owl.carousel.min.css')) }}" rel="stylesheet">

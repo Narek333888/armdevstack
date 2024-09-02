@@ -50,7 +50,7 @@
         <!-- Sign In End -->
     </div>
 
-    @push('guest-scripts')
+    @push('scripts')
         <script>
             $('#loginForm').validate({
                 rules: {

@@ -2,24 +2,21 @@
 
 namespace App\Models;
 
+use App\Traits\DiffForHumans;
 use App\Traits\Trashable;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Carbon;
 
 /**
  * @property mixed $created_at
  */
 class Post extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
-    use Trashable;
+    use HasFactory, SoftDeletes, Trashable, DiffForHumans;
 
     protected $fillable = [
         'active',
@@ -34,14 +31,6 @@ class Post extends Model
     public function postText(): HasOne
     {
         return $this->hasOne(PostText::class);
-    }
-
-    /**
-     * @return Attribute
-     */
-    protected function createdAtDiff(): Attribute
-    {
-        return Attribute::make(get: fn() => Carbon::parse($this->created_at)->diffForHumans());
     }
 
     /**

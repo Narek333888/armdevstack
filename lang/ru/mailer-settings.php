@@ -2,69 +2,68 @@
 
 return [
     'id' => 'Id',
-    'title' => 'Заголовок',
-    'short_description' => 'Краткое Описание',
-    'description' => 'Описание',
-    'created_at' => 'Создан',
-    'posts' => 'Посты',
-    'create_new' => 'Создать Новый',
-    'go_back' => 'Назад',
+    'title' => 'Վերնագիր',
+    'short_description' => 'Կարճ Նկարագրություն',
+    'description' => 'Նկարագրություն',
+    'created_at' => 'Ստեղծվել Է',
+    'posts' => 'Հրապարակումներ',
+    'create_new' => 'Ստեղծել Նորը',
+    'go_back' => 'Գնալ Հետ',
 
-    'view_icon_link_title' => 'Посмотреть Пост',
-    'edit_icon_link_title' => 'Редактировать Пост',
-    'delete_icon_link_title' => 'Удалить Пост',
-    'copy_icon_link_title' => 'Копировать Пост',
+    'view_icon_link_title' => 'Տեսնել Հրապարակումը',
+    'edit_icon_link_title' => 'Փոփոխել Հրապարակումը',
+    'delete_icon_link_title' => 'Ջնջել Հրապարակումը',
+    'copy_icon_link_title' => 'Կրկնօրինակել Հրապարակումը',
 
     'alert' => [
-        'are_you_sure' => 'Вы уверены?',
+        'are_you_sure' => 'Are You Sure?',
 
-        'created_successfully' => 'Создано успешно',
-        'updated_successfully' => 'Обновлено успешно',
-
-        'something_went_wrong' => 'Что-то пошло не так.',
+        'created_successfully' => 'Created successfully',
+        'updated_successfully' => 'Updated successfully',
+        'something_went_wrong' => 'Something went wrong',
     ],
 
     'index' => [
-        'image' => 'Изображение',
-        'active' => 'Активен',
+        'image' => 'Նկար',
+        'active' => 'Ակտիվ է',
     ],
 
     'show' => [
-        'go_back' => 'Назад',
-        'active' => 'Активен',
-        'edit_post' => 'Изменить пост',
+        'go_back' => 'Գնալ Հետ',
+        'active' => 'Ակտիվ',
+        'edit_post' => 'Փոփոխել հրապարակումը',
     ],
 
     'create' => [
-        'title_hy_input_label' => 'Заголовок на армянском',
-        'title_en_input_label' => 'Заголовок на английском',
-        'title_ru_input_label' => 'Заголовок на русском',
+        'title_hy_input_label' => 'Հայերեն վերնագիր',
+        'title_en_input_label' => 'Անգլերեն վերնագիր',
+        'title_ru_input_label' => 'Ռուսերեն վերնագիր',
 
-        'title_hy_input_placeholder' => 'Заголовок на армянском',
-        'title_en_input_placeholder' => 'Заголовок на английском',
-        'title_ru_input_placeholder' => 'Заголовок на русском',
+        'title_hy_input_placeholder' => 'Հայերեն վերնագիր',
+        'title_en_input_placeholder' => 'Անգլերեն վերնագիր',
+        'title_ru_input_placeholder' => 'Ռուսերեն վերնագիր',
 
-        'short_description_hy_input_label' => 'Краткое описание на армянском',
-        'short_description_en_input_label' => 'Краткое описание на английском',
-        'short_description_ru_input_label' => 'Краткое описание на русском',
+        'short_description_hy_input_label' => 'Հայերեն կարճ նկարագրություն',
+        'short_description_en_input_label' => 'Անգլերեն կարճ նկարագրություն',
+        'short_description_ru_input_label' => 'Ռուսերեն կարճ նկարագրություն',
 
-        'description_hy_input_label' => 'Описание на армянском',
-        'description_en_input_label' => 'Описание на английском',
-        'description_ru_input_label' => 'Описание на русском',
+        'description_hy_input_label' => 'Հայերեն նկարագրություն',
+        'description_en_input_label' => 'Անգլերեն նկարագրություն',
+        'description_ru_input_label' => 'Ռուսերեն նկարագրություն',
 
-        'short_description_hy_input_placeholder' => 'Краткое описание на армянском',
-        'short_description_en_input_placeholder' => 'Краткое описание на английском',
-        'short_description_ru_input_placeholder' => 'Краткое описание на русском',
+        'short_description_hy_input_placeholder' => 'Հայերեն կարճ նկարագրություն',
+        'short_description_en_input_placeholder' => 'Անգլերեն կարճ նկարագրություն',
+        'short_description_ru_input_placeholder' => 'Ռուսերեն կարճ նկարագրություն',
 
-        'description_hy_input_placeholder' => 'Описание на армянском',
-        'description_en_input_placeholder' => 'Описание на английском',
-        'description_ru_input_placeholder' => 'Описание на русском',
+        'description_hy_input_placeholder' => 'Հայերեն նկարագրություն',
+        'description_en_input_placeholder' => 'Անգլերեն նկարագրություն',
+        'description_ru_input_placeholder' => 'Ռուսերեն նկարագրություն',
 
-        'create' => 'Создать',
-        'create_new_post' => 'Создать Новый Пост',
-        'go_back' => 'Назад',
+        'create' => 'Ստեղծել',
+        'create_new_post' => 'Ստեղծել Նոր Հրապարակում',
+        'go_back' => 'Գնալ Հետ',
 
-        'image' => 'Изображение',
+        'image' => 'Նկար',
     ],
 
     'edit' => [
@@ -77,31 +76,31 @@ return [
         'from_name_input_label' => 'From Name',
         'from_address_input_label' => 'From Address',
 
-        'update' => 'Обновить',
-        'go_back' => 'Назад',
+        'update' => 'Թարմացնել',
+        'go_back' => 'Գնալ Հետ',
     ],
 
     'delete' => [
-        'delete_selected' => 'Удалить выбранные',
-        'delete_all' => 'Удалить все',
+        'delete_selected' => 'Ջնջել նշված(ներ)-ը',
+        'delete_all' => 'Ջնջել Բոլորը',
     ],
 
     'validation' => [
-        'image_required' => 'Поле изображения обязательно',
-        'image_image' => 'Поле изображения должно быть изображением',
+        'image_required' => 'Նկարի արժեքը պարտադիր է',
+        'image_image' => 'Պատկերի դաշտը պետք է լինի պատկեր',
 
-        'active.integer' => 'Активное поле должно быть целым числом',
+        'active_integer' => 'Ակտիվ դաշտի արժեքը պետք է լինի ամբողջ թիվ',
 
-        'title_hy_required' => 'Поле заголовка на армянском языке обязательно',
-        'title_en_required' => 'Поле заголовка на английском языке обязательно',
-        'title_ru_required' => 'Поле заголовка на русском языке обязательно',
+        'title_hy_required' => 'Վերնագրի հայերեն արժեքը պարտադիր է',
+        'title_en_required' => 'Վերնագրի անգլերեն արժեքը պարտադիր է',
+        'title_ru_required' => 'Վերնագրի ռուսերեն արժեքը պարտադիր է',
 
-        'short_description_hy_required' => 'Поле краткое описание на армянском языке обязательно',
-        'short_description_en_required' => 'Поле краткое описание на английском языке обязательно',
-        'short_description_ru_required' => 'Поле краткое описание на русском языке обязательно',
+        'short_description_hy_required' => 'Կարճ Նկարագրության հայերեն արժեքը պարտադիր է',
+        'short_description_en_required' => 'Կարճ Նկարագրության անգլերեն արժեքը պարտադիր է',
+        'short_description_ru_required' => 'Կարճ Նկարագրության ռուսերեն արժեքը պարտադիր է',
 
-        'description_hy_required' => 'Поле описания на армянском языке обязательно',
-        'description_en_required' => 'Поле описания на английском языке обязательно',
-        'description_ru_required' => 'Поле описания на русском языке обязательно',
+        'description_hy_required' => 'Նկարագրության հայերեն արժեքը պարտադիր է',
+        'description_en_required' => 'Նկարագրության անգլերեն արժեքը պարտադիր է',
+        'description_ru_required' => 'Նկարագրության ռուսերեն արժեքը պարտադիր է',
     ],
 ];

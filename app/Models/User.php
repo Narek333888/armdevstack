@@ -2,15 +2,26 @@
 
 namespace App\Models;
 
+use App\Traits\DiffForHumans;
+use App\Traits\Trashable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Spatie\Translatable\HasTranslations;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use HasFactory, Notifiable, Notifiable, HasRoles;
+    use HasFactory,
+        Notifiable,
+        Notifiable,
+        HasRoles,
+        HasTranslations,
+        SoftDeletes,
+        Trashable,
+        DiffForHumans;
 
     /**
      * The attributes that are mass assignable.
@@ -21,6 +32,11 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'active_status',
+    ];
+
+    protected array $translatable = [
+        'name',
     ];
 
     /**

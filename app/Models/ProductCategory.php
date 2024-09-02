@@ -2,20 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\DiffForHumans;
 use App\Traits\Trashable;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Carbon;
 
 class ProductCategory extends Model
 {
-    use HasFactory;
-    use SoftDeletes;
-    use Trashable;
+    use HasFactory, SoftDeletes, Trashable, DiffForHumans;
 
     protected $fillable = [
         'is_active',
@@ -30,14 +27,6 @@ class ProductCategory extends Model
     public function productCategoryText(): HasOne
     {
         return $this->hasOne(ProductCategoryText::class);
-    }
-
-    /**
-     * @return Attribute
-     */
-    protected function createdAtDiff(): Attribute
-    {
-        return Attribute::make(get: fn() => Carbon::parse($this->created_at)->diffForHumans());
     }
 
     /**

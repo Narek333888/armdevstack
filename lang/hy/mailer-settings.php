@@ -16,12 +16,11 @@ return [
     'copy_icon_link_title' => 'Կրկնօրինակել Հրապարակումը',
 
     'alert' => [
-        'are_you_sure' => 'Դուք համոզվա՞ծ եք',
+        'are_you_sure' => 'Are You Sure?',
 
-        'created_successfully' => 'Հաջողությամբ ստեղծվեց',
-        'updated_successfully' => 'Հաջողությամբ փոփոխվեց',
-
-        'something_went_wrong' => 'Ինչ որ բան այն չէ.',
+        'created_successfully' => 'Created successfully',
+        'updated_successfully' => 'Updated successfully',
+        'something_went_wrong' => 'Something went wrong',
     ],
 
     'index' => [

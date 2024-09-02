@@ -15,8 +15,8 @@ return [
 
     'previous' => '&laquo; Previous',
     'next' => 'Next &raquo;',
-    'showing' => 'Ցուցադրվում է',
-    'to' => 'ից',
-    'of' => '-ը',
-    'results' => 'արդյունքներից',
+    'showing' => 'Showing',
+    'to' => 'to',
+    'of' => 'of',
+    'results' => 'results',
 ];

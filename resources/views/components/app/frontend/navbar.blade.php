@@ -44,9 +44,11 @@
                 </form>
             </div>
 
-            {{--<div class="ms-5">
-                <a href="#" class="btn btn-sm btn-outline-success">{{ __('general.navbar.login_button_text') }}</a>
-            </div>--}}
+            @if(!auth()->user())
+                <div class="ms-5">
+                    <a href="{{ route('login') }}" class="btn btn-sm btn-outline-success">{{ __('general.navbar.login_button_text') }}</a>
+                </div>
+            @endif
         </div>
     </div>
 </nav>

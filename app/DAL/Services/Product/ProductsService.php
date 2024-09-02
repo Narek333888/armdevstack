@@ -77,8 +77,8 @@ class ProductsService
         $imageNewName = uniqid(date('dmYHis')) . '.' . $image->getClientOriginalExtension();
         $data['imageNewName'] = $imageNewName;
         $data['imageOriginalName'] = $imageOriginalName;
-        $data['active'] = boolval($data['active']);
-        $data['showInHome'] = boolval($data['showInHome']);
+        $data['active'] = isset($data['active']) ? boolval($data['active']) : 0;
+        $data['showInHome'] = isset($data['showInHome']) ? boolval($data['showInHome']) : 0;
 
         $product = $this->productsRepository->create($data);
 

@@ -36,9 +36,9 @@
 
             <h6 class="text-muted attached-categories-title attached-post-categories-title">{{ __('posts.categories') }}</h6>
 
-            <div class="post-categories attached-categories">
+            <div>
                 @foreach($post->categories as $key => $category)
-                    <div class="post-category attached-category">{{ $category->postCategoryText->name }}</div>
+                    <div class="badge bg-info">{{ $category->postCategoryText->name }}</div>
                 @endforeach
             </div>
 

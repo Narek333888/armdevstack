@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use App\DAL\Repositories\MailerSetting\Interfaces\IMailerSettingsRepository;
 use App\DAL\Repositories\MailerSetting\MailerSettingsRepository;
+use App\DAL\Repositories\Permission\Interfaces\IPermissionsRepository;
+use App\DAL\Repositories\Permission\PermissionsRepository;
 use App\DAL\Repositories\Post\Interfaces\IPostsRepository;
 use App\DAL\Repositories\Post\PostsRepository;
 use App\DAL\Repositories\PostCategory\Interfaces\IPostCategoriesRepository;
@@ -12,10 +14,14 @@ use App\DAL\Repositories\Product\Interfaces\IProductsRepository;
 use App\DAL\Repositories\Product\ProductsRepository;
 use App\DAL\Repositories\ProductCategory\Interfaces\IProductCategoriesRepository;
 use App\DAL\Repositories\ProductCategory\ProductCategoriesRepository;
+use App\DAL\Repositories\Role\Interfaces\IRolesRepository;
+use App\DAL\Repositories\Role\RolesRepository;
 use App\DAL\Repositories\SoftDeletion\Interfaces\ISoftDeletionRepository;
 use App\DAL\Repositories\SoftDeletion\SoftDeletionRepository;
 use App\DAL\Repositories\Trash\Interfaces\ITrashableRepository;
 use App\DAL\Repositories\Trash\TrashableRepository;
+use App\DAL\Repositories\User\Interfaces\IUsersRepository;
+use App\DAL\Repositories\User\UsersRepository;
 use App\DAL\Services\WeatherForecast\Interfaces\IWeatherForecastService;
 use App\DAL\Services\WeatherForecast\WeatherApiService;
 use Illuminate\Contracts\Foundation\Application;
@@ -36,8 +42,11 @@ class ServiceContainerProvider extends ServiceProvider
         $this->app->singleton(IPostCategoriesRepository::class, PostCategoriesRepository::class);
         $this->app->singleton(IProductCategoriesRepository::class, ProductCategoriesRepository::class);
         $this->app->singleton(IProductsRepository::class, ProductsRepository::class);
+        $this->app->singleton(IUsersRepository::class, UsersRepository::class);
+        $this->app->singleton(IRolesRepository::class, RolesRepository::class);
+        $this->app->singleton(IPermissionsRepository::class, PermissionsRepository::class);
 
-        //services
+        //Services
         $this->app->singleton(IWeatherForecastService::class, function (Application $app)
         {
             $service = config('weather-forecast.api_service', 'weatherapi');

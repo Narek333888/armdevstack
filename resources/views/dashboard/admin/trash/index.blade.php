@@ -4,21 +4,6 @@
             @if(!$countOfTrashedItems)
                 <h2>{{ __('trash.trash_is_empty') }}</h2>
             @else
-                {{--<div class="mb-3">
-                    <form action="{{ route('') }}" method="post" class="d-inline">
-                        @csrf
-                        @method('DELETE')
-
-                        <button onclick="return confirmDelete('{{ __('general.are_you_sure') }}')" type="submit" class="btn btn-danger shadow-none btn-sm">{{ __('general.delete_all') }}</button>
-                    </form>
-
-                    <form action="" method="post" class="d-inline">
-                        @csrf
-
-                        <button type="submit" class="btn btn-primary shadow-none btn-sm">{{ __('general.restore_all') }}</button>
-                    </form>
-                </div>--}}
-
                 @foreach ($models as $modelName => $items)
                     @foreach ($items as $key => $item)
                         <div class="col-md-4 mb-3">
@@ -36,6 +21,18 @@
 
                             @if($modelName === 'App\Models\Product')
                                 @include('dashboard.admin.trash.product.index')
+                            @endif
+
+                            @if($modelName === 'App\Models\User')
+                                @include('dashboard.admin.trash.user.index')
+                            @endif
+
+                            @if($modelName === 'App\Models\Role')
+                                @include('dashboard.admin.trash.role.index')
+                            @endif
+
+                            @if($modelName === 'App\Models\Permission')
+                                @include('dashboard.admin.trash.permission.index')
                             @endif
                         </div>
                     @endforeach
