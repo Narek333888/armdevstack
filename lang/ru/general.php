@@ -25,6 +25,8 @@ return [
     'are_you_sure' => 'Are you sure?',
     'restore_all' => 'Restore All',
     'type' => 'Type',
+    'save' => 'Save',
+    'back' => 'Back',
 
     'navbar' => [
         'home' => 'Home',
