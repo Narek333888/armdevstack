@@ -31,6 +31,21 @@
                     <label class="form-check-label" for="isActiveCheckbox">Active</label>
                 </div>
 
+                <div class="form-floating mt-3">
+                    <select class="roles-select form-select @error('roleIds') is-invalid @enderror"
+                            name="roleIds[]" multiple="multiple">
+                        @foreach($roles as $key => $role)
+                            <option value="{{ $role->name }}" {{ in_array($role->name, $userRoles) ? 'selected' : '' }}>
+                                {{ $role->name }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    @error('roleIds')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <div class="tab-content pt-3" id="nav-tabContent">
                     @include('dashboard.admin.user.partial.form-content.edit.translatable.hy')
 
@@ -73,6 +88,11 @@
             initActiveTabs('.nav-link', '.tab-pane');
 
             initTinyMce('.tiny-mce-editor');
+
+            initSelect2('.roles-select', {
+                placeholder: '{{ __('roles.create.select_roles') }}',
+                allowClear: true,
+            })
         </script>
     @endpush
 </x-dashboard-layout>

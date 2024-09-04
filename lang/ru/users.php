@@ -14,11 +14,11 @@ return [
     'create_new' => 'Create New',
     'go_back' => 'Go Back',
 
-    'view_icon_link_title' => 'View User',
-    'edit_icon_link_title' => 'Edit User',
-    'delete_icon_link_title' => 'Delete User',
-    'copy_icon_link_title' => 'Copy User',
-    'soft_delete_icon_link_title' => 'Move To Trash',
+    'view_icon_link_name' => 'View User',
+    'edit_icon_link_name' => 'Edit User',
+    'delete_icon_link_name' => 'Delete User',
+    'copy_icon_link_name' => 'Copy User',
+    'soft_delete_icon_link_name' => 'Move To Trash',
 
     'alert' => [
         'are_you_sure' => 'Are You Sure',
@@ -47,13 +47,16 @@ return [
     ],
 
     'create' => [
-        'title_hy_input_label' => 'Armenian Title',
-        'title_en_input_label' => 'English Title',
-        'title_ru_input_label' => 'Russian Title',
+        'name_hy_input_label' => 'Armenian name',
+        'name_en_input_label' => 'English name',
+        'name_ru_input_label' => 'Russian name',
 
-        'title_hy_input_placeholder' => 'Armenian Title',
-        'title_en_input_placeholder' => 'English Title',
-        'title_ru_input_placeholder' => 'Russian Title',
+        'email_input_label' => 'Email',
+        'password_input_label' => 'Password',
+
+        'name_hy_input_placeholder' => 'Armenian name',
+        'name_en_input_placeholder' => 'English name',
+        'name_ru_input_placeholder' => 'Russian name',
 
         'short_description_hy_input_label' => 'Armenian Short Description',
         'short_description_en_input_label' => 'English Short Description',
@@ -89,9 +92,9 @@ return [
         'seo_url_en_input_label' => 'English Seo Url',
         'seo_url_ru_input_label' => 'Russian Seo Url',
 
-        'title_hy_input_placeholder' => 'Armenian Title',
-        'title_en_input_placeholder' => 'English Title',
-        'title_ru_input_placeholder' => 'Russian Title',
+        'name_hy_input_placeholder' => 'Armenian name',
+        'name_en_input_placeholder' => 'English name',
+        'name_ru_input_placeholder' => 'Russian name',
 
         'short_description_hy_input_label' =>  'Armenian Short description',
         'short_description_en_input_label' => 'English Short description',
@@ -132,9 +135,9 @@ return [
 
         'active_integer' => 'The active field must be an integer',
 
-        'title_hy_required' => 'Armenian title is required',
-        'title_en_required' => 'English title is required',
-        'title_ru_required' => 'Russian title is required',
+        'name_hy_required' => 'Armenian name is required',
+        'name_en_required' => 'English name is required',
+        'name_ru_required' => 'Russian name is required',
 
         'short_description_hy_required' => 'Armenian Short Description Is Required',
         'short_description_en_required' => 'English Short Description Is Required',

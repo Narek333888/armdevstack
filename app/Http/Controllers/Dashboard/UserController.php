@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\DAL\Services\Role\RolesService;
 use App\DAL\Services\User\UsersService;
 use App\Helpers\SessionHelper;
 use App\Http\Controllers\Controller;
@@ -16,13 +17,16 @@ use Illuminate\Http\RedirectResponse;
 class UserController extends Controller
 {
     private UsersService $usersService;
+    private RolesService $rolesService;
 
     /**
      * @param UsersService $usersService
+     * @param RolesService $rolesService
      */
-    public function __construct(UsersService $usersService)
+    public function __construct(UsersService $usersService, RolesService $rolesService)
     {
         $this->usersService = $usersService;
+        $this->rolesService = $rolesService;
     }
 
     /**
@@ -51,7 +55,11 @@ class UserController extends Controller
      */
     public function create(): Renderable
     {
-        return view('dashboard.admin.user.create');
+        $roles = $this->rolesService->getAllRoles();
+
+        return view('dashboard.admin.user.create', [
+            'roles' => $roles,
+        ]);
     }
 
     /**
@@ -61,9 +69,7 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request): RedirectResponse
     {
-        $data = $request->validated();
-
-        $this->usersService->createUser($data);
+        $this->usersService->createUser($request->validated());
 
         return redirect()->route('user.index')->with(['success' => __('users.alert.created_successfully')]);
     }
@@ -75,11 +81,15 @@ class UserController extends Controller
     public function edit(int $id): Renderable
     {
         $user = $this->usersService->getUserById($id);
+        $roles = $this->rolesService->getAllRoles();
+        $userRoles = $this->usersService->getUserSyncedRoles($user);
 
         SessionHelper::setValue('user_edit_page', intval(request()->query('page', 1)));
 
         return view('dashboard.admin.user.edit', [
             'user' => $user,
+            'roles' => $roles,
+            'userRoles' => $userRoles,
         ]);
     }
 

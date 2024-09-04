@@ -4,6 +4,7 @@ namespace App\DAL\Services\User;
 
 use App\DAL\Repositories\User\Interfaces\IUsersRepository;
 use App\Helpers\CacheHelper;
+use App\Jobs\SendUserPasswordEmail;
 use App\Models\User;
 use App\Utilities\CacheUtility;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -11,6 +12,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
+use Str;
 
 class UsersService
 {
@@ -67,10 +69,15 @@ class UsersService
      */
     public function createUser(array $data): void
     {
-        $data['active'] = isset($data['active']) ? boolval($data['active']) : 0;
-        $data['password'] = Hash::make($data['password']);
+        $password = Str::random(10);
 
-        $this->usersRepository->create($data);
+        $data['active'] = isset($data['active']) ? boolval($data['active']) : 0;
+        $data['password'] = Hash::make($password);
+
+        $user = $this->usersRepository->create($data);
+        $this->usersRepository->syncRoles($user, $data['roleIds']);
+
+        SendUserPasswordEmail::dispatch($user,$password);
 
         CacheUtility::clearPaginatedItemsCache(self::MODEL_CLASS);
     }
@@ -82,7 +89,8 @@ class UsersService
      */
     public function updateUser(int|User $user, array $data): void
     {
-        $this->usersRepository->update($user, $data);
+        $user = $this->usersRepository->update($user, $data);
+        $this->usersRepository->syncRoles($user, $data['roleIds']);
 
         CacheUtility::clearSingleItemCache($user, self::MODEL_CLASS);
         CacheUtility::clearPaginatedItemsCache(self::MODEL_CLASS);
@@ -150,5 +158,28 @@ class UsersService
         $this->usersRepository->softDeleteAll();
 
         CacheUtility::clearPaginatedItemsCache(self::MODEL_CLASS);
+    }
+
+    /**
+     * @param User $user
+     * @param array $roles
+     * @return void
+     */
+    public function syncRolesToUser(User $user, array $roles): void
+    {
+        $this->usersRepository->syncRoles($user, $roles);
+
+        CacheUtility::clearPaginatedItemsCache(self::MODEL_CLASS);
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     */
+    public function getUserSyncedRoles(User $user): array
+    {
+        CacheUtility::clearPaginatedItemsCache(self::MODEL_CLASS);
+
+        return $this->usersRepository->getSyncedRoles($user);
     }
 }

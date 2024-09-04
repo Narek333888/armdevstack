@@ -2,7 +2,7 @@
 
 return [
     'id' => 'Id',
-    'user' => 'User',
+    'Role' => 'Role',
     'permissions' => 'Permissions',
     'name' => 'Name',
     'email' => 'Email',
@@ -14,10 +14,10 @@ return [
     'create_new' => 'Create New',
     'go_back' => 'Go Back',
 
-    'view_icon_link_title' => 'View User',
-    'edit_icon_link_title' => 'Edit User',
-    'delete_icon_link_title' => 'Delete User',
-    'copy_icon_link_title' => 'Copy User',
+    'view_icon_link_title' => 'View Role',
+    'edit_icon_link_title' => 'Edit Role',
+    'delete_icon_link_title' => 'Delete Role',
+    'copy_icon_link_title' => 'Copy Role',
     'soft_delete_icon_link_title' => 'Move To Trash',
 
     'alert' => [
@@ -29,7 +29,7 @@ return [
         'copied_successfully' => 'Copied Successfully',
         'soft_deleted_successfully' => 'Moved to trash successfully',
 
-        'please_select_at_least_one_user_to_delete' => 'Please Select At Least One User To Delete.',
+        'please_select_at_least_one_Role_to_delete' => 'Please Select At Least One Role To Delete.',
         'something_went_wrong' => 'Something Went Wrong.',
 
         'restored_successfully' => 'Restored Successfully.',
@@ -43,7 +43,7 @@ return [
     'show' => [
         'go_back' => 'Go Back',
         'active' => 'Active',
-        'edit_user' => 'Edit User',
+        'edit_Role' => 'Edit Role',
     ],
 
     'create' => [

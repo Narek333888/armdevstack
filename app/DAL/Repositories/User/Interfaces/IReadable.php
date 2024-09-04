@@ -2,6 +2,8 @@
 
 namespace App\DAL\Repositories\User\Interfaces;
 
+use App\Models\User;
+
 interface IReadable
 {
     public function getAll();
@@ -9,4 +11,5 @@ interface IReadable
     public function getById(int $id);
     public function getAllSelected(array $data);
     public function getAllSoftDeleted();
+    public function getSyncedRoles(User $user);
 }

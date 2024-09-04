@@ -28,7 +28,8 @@ class UserStoreRequest extends FormRequest
             'nameEn' => ['required', 'string', 'max:255'],
             'nameRu' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users,email'],
-            'password' => ['required', 'string', 'min:8', 'max:20'],
+            'password' => ['nullable', 'string'],
+            'roleIds' => ['required'],
         ];
     }
 
@@ -38,7 +39,7 @@ class UserStoreRequest extends FormRequest
     public function messages(): array
     {
         return [
-
+            'roleIds.required' => 'The roles field is required',
         ];
     }
 }

@@ -38,7 +38,18 @@ class UserUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique('users', 'email')->ignore($this->input('userId')),
             ],
-            'password' => ['nullable', 'string', 'min:8', 'max:20'],
+            'password' => ['nullable', 'string'],
+            'roleIds' => ['required'],
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function messages(): array
+    {
+        return [
+            'roleIds.required' => 'The roles field is required',
         ];
     }
 }

@@ -25,6 +25,22 @@
                     <label class="form-check-label" for="isActiveCheckbox">Active</label>
                 </div>
 
+                <div class="form-floating mt-3">
+                    <select class="roles-select form-select shadow-none @error('roleIds') is-invalid @enderror" name="roleIds[]" multiple="multiple">
+                        @foreach($roles as $key => $role)
+                            @if($role)
+                                <option value="{{ $role->name }}">
+                                    {{ $role->name }}
+                                </option>
+                            @endif
+                        @endforeach
+                    </select>
+
+                    @error('roleIds')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
+
                 <div class="tab-content pt-3" id="nav-tabContent">
                     @include('dashboard.admin.user.partial.form-content.create.translatable.hy')
 
@@ -48,7 +64,7 @@
                         @enderror
                     </div>
 
-                    <div class="form-floating mb-3">
+                    {{--<div class="form-floating mb-3">
                         <input type="password"
                                class="form-control @error('password') is-invalid @enderror"
                                name="password"
@@ -62,7 +78,7 @@
                         @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
-                    </div>
+                    </div>--}}
 
                     <div class="mt-3">
                         <a href="{{ route('user.index') }}" class="btn btn-secondary btn-sm">
@@ -83,6 +99,11 @@
             initActiveTabs('.nav-link', '.tab-pane');
 
             initTinyMce('.tiny-mce-editor');
+
+            initSelect2('.roles-select', {
+                placeholder: '{{ __('roles.create.select_roles') }}',
+                allowClear: true,
+            })
         </script>
     @endpush
 </x-dashboard-layout>

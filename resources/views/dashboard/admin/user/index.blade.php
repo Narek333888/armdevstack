@@ -42,6 +42,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">{{ __('users.name') }}</th>
                                 <th scope="col">{{ __('users.email') }}</th>
+                                <th scope="col">{{ __('roles.roles') }}</th>
                                 <th scope="col">{{ __('users.index.active') }}</th>
                                 <th scope="col">{{ __('users.created_at') }}</th>
                                 <th></th>
@@ -61,6 +62,15 @@
                                     <td>{{ $user->id }}</td>
                                     <td>{{ $user->getTranslation('name', app()->getLocale()) }}</td>
                                     <td>{{ $user->email }}</td>
+                                    <td>
+                                        @if(!empty($user->getRoleNames()))
+                                            @foreach($user->getRoleNames() as $roleName)
+                                                <div class="badge bg-info">
+                                                    {{ $roleName }}
+                                                </div>
+                                            @endforeach
+                                        @endif
+                                    </td>
                                     <td>
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" role="switch" @php echo $user->active_status ? 'checked' : '' @endphp disabled>

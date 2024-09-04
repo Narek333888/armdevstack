@@ -7,7 +7,10 @@ use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
+use LaravelIdea\Helper\Spatie\Permission\Models\_IH_Role_C;
 use Override;
+use Spatie\Permission\Models\Role;
 
 class UsersRepository implements IUsersRepository
 {
@@ -175,5 +178,26 @@ class UsersRepository implements IUsersRepository
     public function softDeleteAll(): ?bool
     {
         return User::moveToTrashAll();
+    }
+
+    /**
+     * @param User $user
+     * @param array $roles
+     * @return void
+     */
+    #[Override]
+    public function syncRoles(User $user, array $roles): void
+    {
+        $user->syncRoles($roles);
+    }
+
+    /**
+     * @param User $user
+     * @return array
+     */
+    #[Override]
+    public function getSyncedRoles(User $user): array
+    {
+        return $user->roles->pluck('name', 'name')->all();
     }
 }
