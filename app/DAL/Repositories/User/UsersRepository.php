@@ -181,22 +181,22 @@ class UsersRepository implements IUsersRepository
     }
 
     /**
-     * @param User $user
+     * @param int|User $user
      * @param array $roles
      * @return void
      */
     #[Override]
-    public function syncRoles(User $user, array $roles): void
+    public function syncRoles(int|User $user, array $roles): void
     {
         $user->syncRoles($roles);
     }
 
     /**
-     * @param User $user
+     * @param int|User $user
      * @return array
      */
     #[Override]
-    public function getSyncedRoles(User $user): array
+    public function getSyncedRoles(int|User $user): array
     {
         return $user->roles->pluck('name', 'name')->all();
     }

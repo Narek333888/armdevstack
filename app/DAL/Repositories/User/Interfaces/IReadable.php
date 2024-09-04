@@ -11,5 +11,5 @@ interface IReadable
     public function getById(int $id);
     public function getAllSelected(array $data);
     public function getAllSoftDeleted();
-    public function getSyncedRoles(User $user);
+    public function getSyncedRoles(int|User $user);
 }

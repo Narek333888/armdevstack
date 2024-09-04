@@ -32,7 +32,7 @@ return [
         'copied_successfully' => 'Copied Successfully',
         'soft_deleted_successfully' => 'Moved to trash successfully',
 
-        'please_select_at_least_one_Role_to_delete' => 'Please Select At Least One Role To Delete.',
+        'please_select_at_least_one_role_to_delete' => 'Please Select At Least One Role To Delete.',
         'something_went_wrong' => 'Something Went Wrong.',
 
         'restored_successfully' => 'Restored Successfully.',

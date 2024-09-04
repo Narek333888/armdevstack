@@ -162,10 +162,11 @@ class RolesRepository implements IRolesRepository
     }
 
     /**
-     * @param Role $role
+     * @param int|Role $role
      * @return array|Collection
      */
-    public function getPermissions(Role $role): array|Collection
+    #[Override]
+    public function getPermissions(int|Role $role): array|Collection
     {
         return RoleHasPermission::query()
             ->where('role_id', $role->id)
@@ -174,11 +175,12 @@ class RolesRepository implements IRolesRepository
     }
 
     /**
-     * @param Role $role
+     * @param int|Role $role
      * @param array $permissions
      * @return void
      */
-    public function syncPermissions(Role $role, array $permissions): void
+    #[Override]
+    public function syncPermissions(int|Role $role, array $permissions): void
     {
         $role->syncPermissions($permissions);
     }

@@ -14,4 +14,5 @@ interface IWrotable
     public function deleteMultiple(array $data);
     public function deleteAll();
     public function softDeleteAll();
+    public function syncPermissions(int|Role $role, array $permissions);
 }

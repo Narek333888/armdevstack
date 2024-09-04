@@ -44,7 +44,7 @@
                 </form>
             </div>
 
-            @if(!auth()->user())
+            @if(!auth()->user() && !request()->routeIs('login'))
                 <div class="ms-5">
                     <a href="{{ route('login') }}" class="btn btn-sm btn-outline-success">{{ __('general.navbar.login_button_text') }}</a>
                 </div>

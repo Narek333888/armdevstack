@@ -13,17 +13,17 @@
                     </a>
 
                     @if(count($permissions))
-                        <button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteSelectedPermissionsBtn">
+                        {{--<button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteSelectedPermissionsBtn">
                             {{ __('permissions.delete.soft_delete_selected') }}
-                        </button>
+                        </button>--}}
 
                         <button class="btn btn-danger btn-sm shadow-none mb-2 text-white" id="deleteSelectedPermissionsBtn">
                             {{ __('permissions.delete.delete_selected') }}
                         </button>
 
-                        <button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteAllPermissionsBtn">
+                        {{--<button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteAllPermissionsBtn">
                             {{ __('permissions.delete.soft_delete_all') }}
-                        </button>
+                        </button>--}}
 
                         <button class="btn btn-danger btn-sm shadow-none mb-2 text-white" id="deleteAllPermissionsBtn">
                             {{ __('permissions.delete.delete_all') }}
@@ -69,7 +69,7 @@
                                                 </a>
                                             </div>
 
-                                            <div>
+                                            {{--<div>
                                                 <form action="{{ route('permission.soft-delete', $permission->id) }}" id="permissionSoftDeleteForm"
                                                       method="post">
                                                     @csrf
@@ -81,7 +81,7 @@
                                                         <i class="fa-solid fa-trash"></i>
                                                     </button>
                                                 </form>
-                                            </div>
+                                            </div>--}}
 
                                             <div>
                                                 <form action="{{ route('permission.delete', $permission->id) }}" id="permissionDeleteForm"

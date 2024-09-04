@@ -4,7 +4,7 @@ namespace App\DAL\Services\User;
 
 use App\DAL\Repositories\User\Interfaces\IUsersRepository;
 use App\Helpers\CacheHelper;
-use App\Jobs\SendUserPasswordEmail;
+use App\Jobs\SendCreatedUserCredentials;
 use App\Models\User;
 use App\Utilities\CacheUtility;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -77,7 +77,7 @@ class UsersService
         $user = $this->usersRepository->create($data);
         $this->usersRepository->syncRoles($user, $data['roleIds']);
 
-        SendUserPasswordEmail::dispatch($user,$password);
+        SendCreatedUserCredentials::dispatch($user, $password);
 
         CacheUtility::clearPaginatedItemsCache(self::MODEL_CLASS);
     }

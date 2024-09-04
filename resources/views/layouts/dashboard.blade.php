@@ -77,7 +77,9 @@
 
 <script>
     setupPusher('admin-channel', 'user-login', function(data, dynamicText) {
-        toastr.info(data.user.name + ' ' + dynamicText);
+        let locale = '{{ app()->getLocale() }}';
+
+        toastr.info(data.user.name[locale] + ' ' + dynamicText);
     }, '{{ config('broadcasting.connections.pusher.key') }}', '{{ __('general.logged_in') }}');
 </script>
 </body>

@@ -13,17 +13,17 @@
                     </a>
 
                     @if(count($roles))
-                        <button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteSelectedRolesBtn">
+                        {{--<button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteSelectedRolesBtn">
                             {{ __('roles.delete.soft_delete_selected') }}
-                        </button>
+                        </button>--}}
 
                         <button class="btn btn-danger btn-sm shadow-none mb-2 text-white" id="deleteSelectedRolesBtn">
                             {{ __('roles.delete.delete_selected') }}
                         </button>
 
-                        <button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteAllRolesBtn">
+                        {{--<button class="btn btn-secondary btn-sm shadow-none mb-2 text-white" id="softDeleteAllRolesBtn">
                             {{ __('roles.delete.soft_delete_all') }}
-                        </button>
+                        </button>--}}
 
                         <button class="btn btn-danger btn-sm shadow-none mb-2 text-white" id="deleteAllRolesBtn">
                             {{ __('roles.delete.delete_all') }}
@@ -82,11 +82,11 @@
                                                     @csrf
                                                     @method('DELETE')
 
-                                                    <button class="btn btn-secondary btn-sm" type="submit"
+                                                    {{--<button class="btn btn-secondary btn-sm" type="submit"
                                                             onclick="return confirmDelete('{{ __('roles.alert.are_you_sure') }}')"
                                                             title="{{ __('roles.soft_delete_icon_link_title') }}">
                                                         <i class="fa-solid fa-trash"></i>
-                                                    </button>
+                                                    </button>--}}
                                                 </form>
                                             </div>
 

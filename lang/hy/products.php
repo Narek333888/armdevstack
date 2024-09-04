@@ -14,11 +14,11 @@ return [
     'create_new' => 'Create New',
     'go_back' => 'Go Back',
 
-    'view_icon_link_name' => 'View Product',
-    'edit_icon_link_name' => 'Edit Product',
-    'delete_icon_link_name' => 'Delete Product',
-    'copy_icon_link_name' => 'Copy Product',
-    'soft_delete_icon_link_name' => 'Move To Trash',
+    'view_icon_link_title' => 'View Product',
+    'edit_icon_link_title' => 'Edit Product',
+    'delete_icon_link_title' => 'Delete Product',
+    'copy_icon_link_title' => 'Copy Product',
+    'soft_delete_icon_link_title' => 'Move To Trash',
 
     'alert' => [
         'are_you_sure' => 'Are You Sure?',

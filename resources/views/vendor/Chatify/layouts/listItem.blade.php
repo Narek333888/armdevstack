@@ -37,7 +37,7 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
         {{-- center side --}}
         <td>
         <p data-id="{{ $user->id }}" data-type="user">
-            {{ strlen($user->name) > 12 ? trim(substr($user->name,0,12)).'..' : $user->name }}
+            {{ strlen($user->getTranslation('name', 'en')) > 12 ? trim(substr($user->getTranslation('name', 'en'),0,12)).'..' : $user->getTranslation('name', 'en') }}
             <span class="contact-item-time" data-time="{{$lastMessage->created_at}}">{{ $lastMessage->timeAgo }}</span></p>
         <span>
             {{-- Last Message user indicator --}}
@@ -75,9 +75,8 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
         {{-- center side --}}
         <td>
             <p data-id="{{ $user->id }}" data-type="user">
-            {{ strlen($user->name) > 12 ? trim(substr($user->name,0,12)).'..' : $user->name }}
+            {{ strlen($user->getTranslation('name', 'en')) > 12 ? trim(substr($user->getTranslation('name', 'en'),0,12)).'..' : $user->getTranslation('name', 'en') }}
         </td>
-
     </tr>
 </table>
 @endif
@@ -86,5 +85,3 @@ $lastMessageBody = strlen($lastMessageBody) > 30 ? mb_substr($lastMessageBody, 0
 @if($get == 'sharedPhoto')
 <div class="shared-photo chat-image" style="background-image: url('{{ $image }}')"></div>
 @endif
-
-
