@@ -2,28 +2,6 @@
 
 namespace App\Providers;
 
-use App\DAL\Repositories\MailerSetting\Interfaces\IMailerSettingsRepository;
-use App\DAL\Repositories\MailerSetting\MailerSettingsRepository;
-use App\DAL\Repositories\Permission\Interfaces\IPermissionsRepository;
-use App\DAL\Repositories\Permission\PermissionsRepository;
-use App\DAL\Repositories\Post\Interfaces\IPostsRepository;
-use App\DAL\Repositories\Post\PostsRepository;
-use App\DAL\Repositories\PostCategory\Interfaces\IPostCategoriesRepository;
-use App\DAL\Repositories\PostCategory\PostCategoriesRepository;
-use App\DAL\Repositories\Product\Interfaces\IProductsRepository;
-use App\DAL\Repositories\Product\ProductsRepository;
-use App\DAL\Repositories\ProductCategory\Interfaces\IProductCategoriesRepository;
-use App\DAL\Repositories\ProductCategory\ProductCategoriesRepository;
-use App\DAL\Repositories\Role\Interfaces\IRolesRepository;
-use App\DAL\Repositories\Role\RolesRepository;
-use App\DAL\Repositories\SoftDeletion\Interfaces\ISoftDeletionRepository;
-use App\DAL\Repositories\SoftDeletion\SoftDeletionRepository;
-use App\DAL\Repositories\Trash\Interfaces\ITrashableRepository;
-use App\DAL\Repositories\Trash\TrashableRepository;
-use App\DAL\Repositories\User\Interfaces\IUsersRepository;
-use App\DAL\Repositories\User\UsersRepository;
-use App\DAL\Services\WeatherForecast\Interfaces\IWeatherForecastService;
-use App\DAL\Services\WeatherForecast\WeatherApiService;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
@@ -35,26 +13,43 @@ class ServiceContainerProvider extends ServiceProvider
     public function register(): void
     {
         //Repositories
-        $this->app->singleton(IPostsRepository::class, PostsRepository::class);
-        $this->app->singleton(IMailerSettingsRepository::class, MailerSettingsRepository::class);
-        $this->app->singleton(ISoftDeletionRepository::class, SoftDeletionRepository::class);
-        $this->app->singleton(ITrashableRepository::class, TrashableRepository::class);
-        $this->app->singleton(IPostCategoriesRepository::class, PostCategoriesRepository::class);
-        $this->app->singleton(IProductCategoriesRepository::class, ProductCategoriesRepository::class);
-        $this->app->singleton(IProductsRepository::class, ProductsRepository::class);
-        $this->app->singleton(IUsersRepository::class, UsersRepository::class);
-        $this->app->singleton(IRolesRepository::class, RolesRepository::class);
-        $this->app->singleton(IPermissionsRepository::class, PermissionsRepository::class);
+        $this->app->bind(\App\DAL\Repositories\Post\Interfaces\IPostsRepository::class, \App\DAL\Repositories\Post\PostsRepository::class);
+        $this->app->bind(\App\DAL\Repositories\MailerSetting\Interfaces\IMailerSettingsRepository::class, \App\DAL\Repositories\MailerSetting\MailerSettingsRepository::class);
+        $this->app->bind(\App\DAL\Repositories\SoftDeletion\Interfaces\ISoftDeletionRepository::class, \App\DAL\Repositories\SoftDeletion\SoftDeletionRepository::class);
+        $this->app->bind(\App\DAL\Repositories\Trash\Interfaces\ITrashableRepository::class, \App\DAL\Repositories\Trash\TrashableRepository::class);
+        $this->app->bind(\App\DAL\Repositories\PostCategory\Interfaces\IPostCategoriesRepository::class, \App\DAL\Repositories\PostCategory\PostCategoriesRepository::class);
+        $this->app->bind(\App\DAL\Repositories\ProductCategory\Interfaces\IProductCategoriesRepository::class, \App\DAL\Repositories\ProductCategory\ProductCategoriesRepository::class);
+        $this->app->bind(\App\DAL\Repositories\Product\Interfaces\IProductsRepository::class, \App\DAL\Repositories\Product\ProductsRepository::class);
+        $this->app->bind(\App\DAL\Repositories\User\Interfaces\IUsersRepository::class, \App\DAL\Repositories\User\UsersRepository::class);
+        $this->app->bind(\App\DAL\Repositories\Role\Interfaces\IRolesRepository::class, \App\DAL\Repositories\Role\RolesRepository::class);
+        $this->app->bind(\App\DAL\Repositories\Permission\Interfaces\IPermissionsRepository::class, \App\DAL\Repositories\Permission\PermissionsRepository::class);
+        $this->app->bind(\App\DAL\Repositories\Frontend\Product\Interfaces\IProductsRepository::class, \App\DAL\Repositories\Frontend\Product\ProductsRepository::class);
+
+        $this->app->bind(\App\Contracts\IPaymentGateway::class, function (Application $app)
+        {
+            $paymentMethod = request()->input('paymentMethod');
+
+            if ($paymentMethod === 'stripe')
+            {
+                return new \App\DAL\Services\Payment\StripePaymentService;
+            }
+            elseif ($paymentMethod === 'paypal')
+            {
+                return new \App\DAL\Services\Payment\PayPalPaymentService();
+            }
+
+            return new \App\DAL\Services\Payment\StripePaymentService;
+        });
 
         //Services
-        $this->app->singleton(IWeatherForecastService::class, function (Application $app)
+        $this->app->bind(\App\DAL\Services\WeatherForecast\Interfaces\IWeatherForecastService::class, function (Application $app)
         {
             $service = config('weather-forecast.api_service', 'weatherapi');
 
             if ($service === 'weatherapi')
-                return new WeatherApiService;
+                return new \App\DAL\Services\WeatherForecast\WeatherApiService;
 
-            return new WeatherApiService;
+            return new \App\DAL\Services\WeatherForecast\WeatherApiService;
         });
     }
 

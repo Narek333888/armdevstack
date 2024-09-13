@@ -31,6 +31,7 @@
                 @enderror
             </div>
 
+            <label>{{ __('post-categories.create.description_ru_input_label') }}</label>
             <div class="form-floating">
                 <textarea
                     class="form-control tiny-mce-editor @error('descriptionRu') is-invalid @enderror"

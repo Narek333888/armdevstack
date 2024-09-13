@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? config('app.name') }}</title>
+    <link rel="icon" href="{{ asset('favicons/favicon4.png') }}">
     <link rel="stylesheet" href="{{ App::environment('local') ? asset('css/custom.css') : asset('css/custom.min.css') }}?ver={{ filemtime(public_path(App::environment('local') ? 'css/custom.css' : 'css/custom.min.css')) }}">
     <link href="{{ App::environment('local') ? asset('dashboard/lib/fontawesome/css/all.css') : asset('dashboard/lib/fontawesome/css/all.min.css') }}?ver={{ App::environment('local') ? filemtime(public_path('dashboard/lib/fontawesome/css/all.css')) : filemtime(public_path('dashboard/lib/fontawesome/css/all.min.css')) }}" rel="stylesheet">
     <link href="{{ asset('lib/bootstrapicons/font/bootstrap-icons.min.css') }}?ver={{ filemtime(public_path('lib/bootstrapicons/font/bootstrap-icons.min.css')) }}" rel="stylesheet">

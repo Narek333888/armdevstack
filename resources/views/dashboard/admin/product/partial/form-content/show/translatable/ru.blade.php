@@ -24,6 +24,7 @@
                 <label for="shortDescriptionRu">{{ __('products.edit.short_description_ru_input_label') }}</label>
             </div>
 
+            <label>{{ __('products.edit.description_ru_input_label') }}</label>
             <div class="form-floating">
                 <textarea
                     class="form-control tiny-mce-editor"

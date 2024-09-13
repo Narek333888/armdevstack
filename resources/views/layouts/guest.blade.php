@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title ?? config('app.name') }}</title>
+    <link rel="icon" href="{{ asset('favicons/favicon4.png') }}">
     <link rel="stylesheet" href="{{ App::environment('local') ? asset('css/custom.css') : asset('css/custom.min.css') }}?ver={{ filemtime(public_path(App::environment('local') ? 'css/custom.css' : 'css/custom.min.css')) }}">
     <link href="{{ App::environment('local') ? asset('lib/fontawesome/css/all.css') : asset('lib/fontawesome/css/all.min.css') }}?ver={{ App::environment('local') ? filemtime(public_path('lib/fontawesome/css/all.css')) : filemtime(public_path('lib/fontawesome/css/all.min.css')) }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ App::environment('local') ? asset('lib/bootstrap/css/bootstrap.css') : asset('lib/bootstrap/css/bootstrap.min.css') }}?ver={{ filemtime(public_path(App::environment('local') ? 'lib/bootstrap/css/bootstrap.css' : 'lib/bootstrap/css/bootstrap.min.css')) }}">
@@ -12,7 +13,8 @@
     <link href="{{ asset('lib/select2/css/select2.min.css') }}?ver={{ filemtime(public_path('lib/select2/css/select2.min.css')) }}" rel="stylesheet">
     <link href="{{ asset('lib/leaflet/leaflet.min.css') }}?ver={{ filemtime(public_path('lib/leaflet/leaflet.min.css')) }}" rel="stylesheet">
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @vite(['resources/js/app.js'])
+    @stack('styles')
 </head>
 <body>
 <div>
@@ -29,6 +31,7 @@
     <!-- Content End -->
 </div>
 
+<script src="https://js.stripe.com/v3/"></script>
 <script src="{{ asset('lib/pusher/pusher.min.js') }}?ver={{ filemtime(public_path('lib/pusher/pusher.min.js')) }}"></script>
 <script src="{{ asset('lib/jquery/jquery.min.js') }}?ver={{ filemtime(public_path('lib/jquery/jquery.min.js')) }}"></script>
 <script src="{{ asset('lib/tinymce/js/tinymce/tinymce.min.js') }}?ver={{ filemtime(public_path('lib/tinymce/js/tinymce/tinymce.min.js')) }}"></script>

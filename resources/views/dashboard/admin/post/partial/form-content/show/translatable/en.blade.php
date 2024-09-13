@@ -24,6 +24,7 @@
                 <label for="shortDescriptionEn">{{ __('posts.edit.short_description_en_input_label') }}</label>
             </div>
 
+            <label>{{ __('post-categories.create.description_en_input_label') }}</label>
             <div class="form-floating">
                 <textarea
                     class="form-control tiny-mce-editor"

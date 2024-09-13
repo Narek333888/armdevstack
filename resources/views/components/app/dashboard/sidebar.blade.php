@@ -14,18 +14,89 @@
             </div>
         </div>
         <div class="navbar-nav w-100">
-            <x-nav-link href="{{ route('main.index') }}" :active="request()->routeIs('main.index')">{{ config('app.name') }}</x-nav-link>
-            <x-nav-link href="{{ route('user.index') }}" :active="request()->routeIs('user.index')">{{ __('navigation.users') }}</x-nav-link>
-            <x-nav-link href="{{ route('role.index') }}" :active="request()->routeIs('role.index')">{{ __('navigation.roles') }}</x-nav-link>
-            <x-nav-link href="{{ route('permission.index') }}" :active="request()->routeIs('permission.index')">{{ __('navigation.permissions') }}</x-nav-link>
-            <x-nav-link href="{{ route('post-category.index') }}" :active="request()->routeIs('post-category.index')">{{ __('navigation.post_categories') }}</x-nav-link>
-            <x-nav-link href="{{ route('post.index') }}" :active="request()->routeIs('post.index')">{{ __('posts.posts') }}</x-nav-link>
-            <x-nav-link href="{{ route('product-category.index') }}" :active="request()->routeIs('product-category.index')">{{ __('product-categories.product_categories') }}</x-nav-link>
-            <x-nav-link href="{{ route('product.index') }}" :active="request()->routeIs('product.index')">{{ __('products.products') }}</x-nav-link>
-            <x-nav-link href="{{ route('weather.show') }}" :active="request()->routeIs('weather.show')">{{ __('weather.weather') }}</x-nav-link>
-            <x-nav-link href="{{ route('mailer-settings.index') }}" :active="request()->routeIs('mailer-settings.index')">{{ __('navigation.mailer_settings') }}</x-nav-link>
-            <x-nav-link href="{{ route('chat') }}" :active="request()->routeIs('chat')">{{ __('navigation.chat') }}</x-nav-link>
-            <x-nav-link href="{{ route('trash.index') }}" :active="request()->routeIs('trash.index')">{{ __('navigation.trash') }}</x-nav-link>
+            <x-nav-link
+                href="{{ route('main.index') }}"
+                :active="request()->routeIs('main.index')"
+            >
+                {{ config('app.name') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('user.index') }}"
+                :active="request()->routeIs('user.*')"
+            >
+                {{ __('navigation.users') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('role.index') }}"
+                :active="request()->routeIs('role.*')"
+            >
+                {{ __('navigation.roles') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('permission.index') }}"
+                :active="request()->routeIs('permission.*')"
+            >
+                {{ __('navigation.permissions') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('post-category.index') }}"
+                :active="request()->routeIs('post-category.*')"
+            >
+                {{ __('navigation.post_categories') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('post.index') }}"
+                :active="request()->routeIs('post.*')"
+            >
+                {{ __('posts.posts') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('product-category.index') }}"
+                :active="request()->routeIs('product-category.*')"
+            >
+                {{ __('product-categories.product_categories') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('product.index') }}"
+                :active="request()->routeIs('product.*')"
+            >
+                {{ __('products.products') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('weather.show') }}"
+                :active="request()->routeIs('weather.*')"
+            >
+                {{ __('weather.weather') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('mailer-settings.index') }}"
+                :active="request()->routeIs('mailer-settings.*')"
+            >
+                {{ __('navigation.mailer_settings') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('chat') }}"
+                :active="request()->routeIs('chat')"
+            >
+                {{ __('navigation.chat') }}
+            </x-nav-link>
+
+            <x-nav-link
+                href="{{ route('trash.index') }}"
+                :active="request()->routeIs('trash.*')"
+            >
+                {{ __('navigation.trash') }}
+            </x-nav-link>
         </div>
     </nav>
 </div>

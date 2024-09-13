@@ -12,6 +12,14 @@ trait DiffForHumans
      */
     protected function createdAtDiff(): Attribute
     {
-        return Attribute::make(get: fn() => Carbon::parse($this->created_at)->diffForHumans());
+        return Attribute::make(get: fn() => $this->created_at ? Carbon::parse($this->created_at)->diffForHumans() : null);
+    }
+
+    /**
+     * @return Attribute
+     */
+    protected function updatedAtAtDiff(): Attribute
+    {
+        return Attribute::make(get: fn() => $this->updated_at ? Carbon::parse($this->updated_at)->diffForHumans() : null);
     }
 }

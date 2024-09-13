@@ -8,11 +8,21 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('site.index') }}">{{ __('general.navbar.home') }}</a>
-                </li>
+                <x-nav-link
+                    href="{{ route('site.index') }}"
+                    :active="request()->routeIs('site.index')"
+                >
+                    {{ __('general.navbar.home') }}
+                </x-nav-link>
 
-                <li class="nav-item dropdown">
+                <x-nav-link
+                    href="{{ route('frontend.product.index') }}"
+                    :active="request()->routeIs('frontend.product.*')"
+                >
+                    {{ __('general.navbar.products') }}
+                </x-nav-link>
+
+                {{--<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         {{ __('general.navbar.pages') }}
                     </a>
@@ -23,11 +33,11 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item" href="#">{{ __('general.navbar.products') }}</a>
+                            <a class="dropdown-item" href="{{ route('frontend.product.index') }}">{{ __('general.navbar.products') }}</a>
                         </li>
-                        {{--<li><hr class="dropdown-divider"></li>--}}
+                        --}}{{--<li><hr class="dropdown-divider"></li>--}}{{--
                     </ul>
-                </li>
+                </li>--}}
             </ul>
 
             <div class="front-navbar-login-form-content">

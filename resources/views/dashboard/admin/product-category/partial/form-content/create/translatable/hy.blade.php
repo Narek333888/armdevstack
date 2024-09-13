@@ -17,6 +17,7 @@
                 @enderror
             </div>
 
+            <label>{{ __('product-categories.create.description_hy_input_label') }}</label>
             <div class="form-floating">
                 <textarea
                     class="form-control tiny-mce-editor @error('descriptionHy') is-invalid @enderror"

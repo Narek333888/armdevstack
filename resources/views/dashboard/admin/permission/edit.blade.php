@@ -1,7 +1,7 @@
 <x-dashboard-layout title="{{ $title = 'Permission|Edit' }}">
     <div class="mt-1 p-3 col-sm-12 col-xl-12 col-lg-12 col-md-12">
         <div class="bg-light_ rounded h-100 p-4">
-            <h6 class="mb-4">{{ __('permissions.edit.edit_permission') }} - {{ $permisison->name }}</h6>
+            <h6 class="mb-4">{{ __('permissions.edit.edit_permission') }} - {{ $permission->name }}</h6>
 
             <form method="post" action="{{ route('permission.update', $permission->id) }}" id="permissionUpdateForm" class="w-full">
                 @csrf

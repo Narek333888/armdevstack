@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Traits\DiffForHumans;
 use App\Traits\Trashable;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,7 +13,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory, SoftDeletes, Trashable, DiffForHumans;
+    use HasFactory,
+        SoftDeletes,
+        Trashable,
+        DiffForHumans;
 
     protected $fillable = [
         'price',
@@ -37,5 +41,13 @@ class Product extends Model
     public function category(): BelongsTo
     {
         return $this->belongsTo(ProductCategory::class, 'product_category_id');
+    }
+
+    /**
+     * @return Attribute
+     */
+    public function thumbnailImage(): Attribute
+    {
+        return Attribute::make(get: fn() => "storage/products/$this->image");
     }
 }

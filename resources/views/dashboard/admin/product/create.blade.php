@@ -65,7 +65,7 @@
                            autocomplete="off"
                            value="{{ old('price') }}"
                     >
-                    <label for="price">{{ __('products.create.price_input_label') }}</label>
+                    <label for="price">{{ __('products.create.price_input_label') }} ($)</label>
 
                     @error('price')
                         <div class="invalid-feedback">{{ $message }}</div>

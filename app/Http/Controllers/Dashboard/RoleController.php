@@ -13,11 +13,10 @@ use App\Http\Requests\Role\RoleUpdateRequest;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Override;
 
-class RoleController extends Controller implements HasMiddleware
+class RoleController extends Controller
 {
     private RolesService $rolesService;
     private PermissionsService $permissionsService;
@@ -182,19 +181,5 @@ class RoleController extends Controller implements HasMiddleware
         $this->rolesService->syncPermissionsToRole($role, $request->validated());
 
         return redirect()->back()->with(['success' => __('roles.alert.permissions_added_to_role_successfully')]);
-    }
-
-    /**
-     * @return array|Middleware[]
-     */
-    #[Override]
-    public static function middleware(): array
-    {
-        return [
-            //new Middleware('permission:view permission', only: ['index']),
-            //new Middleware('permission:create permission', only: ['create', 'store']),
-            //new Middleware('permission:update permission', only: ['edit', 'update']),
-            //new Middleware('permission:delete permission', only: ['destroy']),
-        ];
     }
 }

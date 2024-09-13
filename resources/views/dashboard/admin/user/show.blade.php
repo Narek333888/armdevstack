@@ -22,6 +22,14 @@
                 <label>{{ __('users.show.active') }}</label>
             </div>
 
+            <h6 class="text-muted attached-categories-title attached-post-categories-title mt-3">{{ __('posts.categories') }}</h6>
+
+            <div>
+                @foreach($user->roles as $key => $role)
+                    <div class="badge bg-info">{{ $role->name }}</div>
+                @endforeach
+            </div>
+
             <div class="tab-content pt-3" id="nav-tabContent">
                 @include('dashboard.admin.user.partial.form-content.show.translatable.hy')
 

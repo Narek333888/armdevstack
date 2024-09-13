@@ -27,6 +27,8 @@ return [
     'type' => 'Type',
     'save' => 'Save',
     'back' => 'Back',
+    'pay' => 'Pay',
+    'buy' => 'Buy',
 
     'navbar' => [
         'home' => 'Home',
@@ -35,5 +37,31 @@ return [
         'products' => 'Products',
         'search_button_text' => 'Search',
         'login_button_text' => 'Login',
+    ],
+
+    'frontend' => [
+        'products' => 'Products',
+    ],
+
+    'payment' => [
+        'complete_your_payment_for' => 'Complete Your Payment For',
+        'select_payment_method' => 'Select Payment Method',
+        'choose_payment_method' => 'Choose Payment Method',
+        'stripe' => 'Stripe',
+        'paypal' => 'PayPal',
+        'card_holder_name' => 'Card Holder Name',
+        'card_number' => 'Card Number',
+        'enter_your_name' => 'Enter Your Name',
+        'credit_or_debit_card' => 'Credit/Debit Card',
+        'pay_now' => 'Pay Now',
+        'success_title' => 'Success',
+        'success_message' => 'Your Payment Has Been Successfully Processed.',
+        'failure_title' => 'Fail',
+        'failure_message' => 'Your Payment Has Not Been Processed.',
+        'go_to_products_page' => 'Go to Products Page',
+
+        'pay_pal' => [
+            'after_submitting_you_will_be_redirected_to_paypal_to_complete_your_payment' => 'After Submitting You Will Be Redirected To Paypal To Complete Your Payment.',
+        ]
     ],
 ];
