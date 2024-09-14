@@ -23,7 +23,7 @@ class ChargeRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'paymentMethod' => ['required', 'string'],
+            'paymentMethod' => ['required', 'in:stripe,paypal'],
             'cardHolderName' => ['required', 'string'],
             'stripePaymentMethodId' => ['required_if:paymentMethod,stripe', 'string'],
         ];

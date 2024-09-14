@@ -137,6 +137,12 @@ textarea:disabled {
     height: 30px;
 }
 
+/*Payment*/
+#cardElement {
+    height: 38px;
+    padding: 10px;
+}
+
 /*Media*/
 @media only screen and (max-width: 768px) {
     .posts-table-container .buttons-group {
