@@ -137,6 +137,11 @@ textarea:disabled {
     height: 30px;
 }
 
+/*Front products*/
+.front-products-container .product-card .product-card-image {
+    object-fit: none;
+}
+
 /*Payment*/
 #cardElement {
     height: 38px;

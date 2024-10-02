@@ -1,11 +1,11 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\SoftDeletion\SoftDeletionService;
-use App\DAL\Services\Trash\TrashableService;
 use App\Helpers\ModelHelper;
 use App\Http\Controllers\Controller;
+use App\Services\SoftDeletion\SoftDeletionService;
+use App\Services\Trash\TrashableService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use ReflectionException;

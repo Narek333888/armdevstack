@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\DAL\Services\Frontend\Product\ProductsService;
 use App\Http\Controllers\Controller;
+use App\Services\Frontend\Product\ProductsService;
 use Illuminate\Contracts\Support\Renderable;
 
 class ProductController extends Controller
@@ -23,7 +23,7 @@ class ProductController extends Controller
      */
     public function index(): Renderable
     {
-        $products = $this->productsService->getAllProductsPaginated(6);
+        $products = $this->productsService->getAllProductsPaginated(9);
 
         return view('frontend.product.index', [
             'products' => $products,

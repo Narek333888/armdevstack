@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\Permission\PermissionsService;
 use App\Helpers\SessionHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Permission\PermissionDeleteMultipleRequest;
 use App\Http\Requests\Permission\PermissionStoreRequest;
 use App\Http\Requests\Permission\PermissionUpdateRequest;
+use App\Services\Permission\PermissionsService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Controllers\HasMiddleware;
-use Override;
 
 class PermissionController extends Controller
 {

@@ -452,6 +452,61 @@ const fetchWeatherApiData = (url, method, formSelector, cityNameSelector, unitOf
     });
 }
 
+/**
+ * Handle Payment Form
+ * @param options
+ */
+const handlePaymentForm = (options) => {
+    const { stripeKey, formSelector, paymentMethodSelector, nameInputSelector, methods } = options;
+
+    const stripe = stripeKey ? Stripe(stripeKey) : null;
+    let cardElement = null;
+
+    if (stripe) {
+        const elements = stripe.elements();
+        cardElement = elements.create('card');
+        cardElement.mount(methods.stripe.fields.cardElementSelector);
+    }
+
+    $(formSelector).on('submit', async function (event) {
+        const selectedMethod = $(paymentMethodSelector + ':checked').val();
+
+        if (methods[selectedMethod] && methods[selectedMethod].handleSubmit) {
+            event.preventDefault();
+
+            const billingDetails = {
+                name: $(nameInputSelector).val(),
+            };
+
+            const result = await methods[selectedMethod].handleSubmit({
+                stripe,
+                cardElement,
+                billingDetails,
+                formSelector
+            });
+
+            if (result.error) {
+                console.error(result.error);
+            } else if (result.success) {
+                $(formSelector).off('submit').submit();
+            }
+        }
+    });
+
+    $(paymentMethodSelector).on('change', function () {
+        const selectedMethod = $(this).val();
+        updateQueryStringParam('paymentMethod', selectedMethod);
+
+        Object.keys(methods).forEach((method) => {
+            if (method === selectedMethod) {
+                $(methods[method].fields.selector).removeClass('d-none');
+            } else {
+                $(methods[method].fields.selector).addClass('d-none');
+            }
+        });
+    });
+};
+
 // ======================functions call======================
 
 $(document).ready(() => {

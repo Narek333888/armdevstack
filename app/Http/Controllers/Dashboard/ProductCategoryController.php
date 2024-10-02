@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\ProductCategory\ProductCategoriesService;
 use App\Helpers\SessionHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductCategory\ProductCategoryDeleteMultipleRequest;
 use App\Http\Requests\ProductCategory\ProductCategoryStoreRequest;
 use App\Http\Requests\ProductCategory\ProductCategoryUpdateRequest;
+use App\Services\ProductCategory\ProductCategoriesService;
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;

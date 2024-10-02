@@ -17,7 +17,7 @@
                 aria-label="Search"
                 aria-describedby="search-addon"
                 autocomplete="off"
-                value="{{ request('city') }}"
+                value="{{ request('city', 'Yerevan') }}"
             />
 
             <button class="btn btn-secondary weather-check-button" id="weatherCheckButton" type="submit">
@@ -105,6 +105,8 @@
 
 @push('scripts')
     <script>
+        setDefaultQueryParam('city', 'Yerevan');
+
         handleRadioChange('unitOfMeasurement', (value) => {
             if (value === 'celsius') {
                 updateQueryStringParam('unitOfMeasurement', 'celsius');

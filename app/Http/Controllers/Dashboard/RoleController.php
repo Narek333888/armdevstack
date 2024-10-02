@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\Permission\PermissionsService;
-use App\DAL\Services\Role\RolesService;
 use App\Helpers\SessionHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Role\RoleDeleteMultipleRequest;
 use App\Http\Requests\Role\RoleGivePermissionRequest;
 use App\Http\Requests\Role\RoleStoreRequest;
 use App\Http\Requests\Role\RoleUpdateRequest;
+use App\Services\Permission\PermissionsService;
+use App\Services\Role\RolesService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Controllers\Middleware;
-use Override;
 
 class RoleController extends Controller
 {

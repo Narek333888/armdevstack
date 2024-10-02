@@ -1,14 +1,14 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\Post\PostsService;
-use App\DAL\Services\PostCategory\PostCategoriesService;
 use App\Helpers\SessionHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\PostDeleteMultipleRequest;
 use App\Http\Requests\Post\PostStoreRequest;
 use App\Http\Requests\Post\PostUpdateRequest;
+use App\Services\Post\PostsService;
+use App\Services\PostCategory\PostCategoriesService;
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\Role\RolesService;
-use App\DAL\Services\User\UsersService;
 use App\Helpers\SessionHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserDeleteMultipleRequest;
 use App\Http\Requests\User\UserStoreRequest;
 use App\Http\Requests\User\UserUpdateRequest;
+use App\Services\Role\RolesService;
+use App\Services\User\UsersService;
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;

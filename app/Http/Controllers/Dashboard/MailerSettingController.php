@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\MailerSetting\MailerSettingsService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MailerSetting\MailerSettingRequest;
+use App\Services\MailerSetting\MailerSettingsService;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 

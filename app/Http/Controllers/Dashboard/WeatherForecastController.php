@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\WeatherForecast\Interfaces\IWeatherForecastService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WeatherForecast\WeatherApiRequest;
+use App\Services\WeatherForecast\Interfaces\IWeatherForecastService;
 use Illuminate\Contracts\Support\Renderable;
 
 class WeatherForecastController extends Controller

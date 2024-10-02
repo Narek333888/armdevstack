@@ -2,8 +2,8 @@
 
 namespace App\Traits;
 
-use App\DAL\Services\Trash\TrashableService;
 use App\Models\Trash;
+use App\Services\Trash\TrashableService;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 trait Trashable

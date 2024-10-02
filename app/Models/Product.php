@@ -48,6 +48,6 @@ class Product extends Model
      */
     public function thumbnailImage(): Attribute
     {
-        return Attribute::make(get: fn() => "storage/products/$this->image");
+        return Attribute::make(get: fn() => "storage/products/thumbnailImages/$this->image");
     }
 }

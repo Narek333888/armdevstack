@@ -8,6 +8,7 @@ use App\Http\Requests\Payment\ChargeRequest;
 use App\Models\Product;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
+use PharIo\Version\Exception;
 
 class PaymentController extends Controller
 {
@@ -35,18 +36,24 @@ class PaymentController extends Controller
     /**
      * @param ChargeRequest $request
      * @param Product $product
-     * @return RedirectResponse
+     * @return RedirectResponse|false
      */
-    public function charge(ChargeRequest $request, Product $product): RedirectResponse
+    public function charge(ChargeRequest $request, Product $product): RedirectResponse|false
     {
-        $paymentIntent = $this->paymentGateway->charge($request->validated(), $product);
-
-        if ($paymentIntent->status == 'succeeded')
+        try
         {
-            return to_route('payment.success')->with('success', __('general.payment.success_message'));
+            $result = $this->paymentGateway->charge($request->validated(), $product);
+
+            if ($result->status = 'succeeded')
+            {
+                return to_route('payment.success')->with('success', __('general.payment.success_message'));
+            }
+        }
+        catch (Exception $ex) {
+            return to_route('payment.failure')->with('fail', __('general.payment.failure_message'));
         }
 
-        return to_route('payment.failure')->with('fail', __('general.payment.failure_message'));
+        return false;
     }
 
     /**

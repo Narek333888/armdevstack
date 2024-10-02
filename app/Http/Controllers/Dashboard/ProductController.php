@@ -1,14 +1,14 @@
 <?php
 
-namespace app\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard;
 
-use App\DAL\Services\Product\ProductsService;
-use App\DAL\Services\ProductCategory\ProductCategoriesService;
 use App\Helpers\SessionHelper;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\ProductDeleteMultipleRequest;
 use App\Http\Requests\Product\ProductStoreRequest;
 use App\Http\Requests\Product\ProductUpdateRequest;
+use App\Services\Product\ProductsService;
+use App\Services\ProductCategory\ProductCategoriesService;
 use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\JsonResponse;

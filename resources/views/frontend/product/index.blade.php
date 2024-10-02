@@ -1,16 +1,16 @@
 <x-guest-layout title="{{ $title = 'Products' }}">
-    <div class="container my-5">
+    <div class="container front-products-container my-5">
         <h1 class="text-center">{{ __('general.frontend.products') }}</h1>
 
         <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
             @foreach($products as $key => $product)
                 <div class="col">
-                    <div class="card h-100">
-                        <img src="{{ asset($product->thumbnailImage) }}" class="card-img-top" alt="Product 1">
+                    <div class="card product-card h-100">
+                        <img src="{{ asset($product->thumbnailImage) }}" class="card-img-top product-card-image" alt="Product 1">
                         <div class="card-body">
                             <h5 class="card-title">{{ $product->productText->name }}</h5>
 
-                            <p class="card-text">{{ $product->productText->short_description }}</p>
+                            <p class="card-text">{{ Str::words($product->productText->short_description, 15) }}</p>
                             <p class="card-text"><strong>${{ $product->price }}</strong></p>
                         </div>
                         <div class="card-footer">

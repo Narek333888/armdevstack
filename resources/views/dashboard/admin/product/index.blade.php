@@ -71,7 +71,7 @@
                                     </td>
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->productText->name }}</td>
-                                    <td>{{ Str::words($product->productText->short_description, 50) }}</td>
+                                    <td>{{ Str::words($product->productText->short_description, 10) }}</td>
                                     <td>
                                         <div class="badge bg-info">
                                             {{ $product->category->productCategoryText->name }}

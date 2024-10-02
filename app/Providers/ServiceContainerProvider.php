@@ -13,17 +13,17 @@ class ServiceContainerProvider extends ServiceProvider
     public function register(): void
     {
         //Repositories
-        $this->app->bind(\App\DAL\Repositories\Post\Interfaces\IPostsRepository::class, \App\DAL\Repositories\Post\PostsRepository::class);
-        $this->app->bind(\App\DAL\Repositories\MailerSetting\Interfaces\IMailerSettingsRepository::class, \App\DAL\Repositories\MailerSetting\MailerSettingsRepository::class);
-        $this->app->bind(\App\DAL\Repositories\SoftDeletion\Interfaces\ISoftDeletionRepository::class, \App\DAL\Repositories\SoftDeletion\SoftDeletionRepository::class);
-        $this->app->bind(\App\DAL\Repositories\Trash\Interfaces\ITrashableRepository::class, \App\DAL\Repositories\Trash\TrashableRepository::class);
-        $this->app->bind(\App\DAL\Repositories\PostCategory\Interfaces\IPostCategoriesRepository::class, \App\DAL\Repositories\PostCategory\PostCategoriesRepository::class);
-        $this->app->bind(\App\DAL\Repositories\ProductCategory\Interfaces\IProductCategoriesRepository::class, \App\DAL\Repositories\ProductCategory\ProductCategoriesRepository::class);
-        $this->app->bind(\App\DAL\Repositories\Product\Interfaces\IProductsRepository::class, \App\DAL\Repositories\Product\ProductsRepository::class);
-        $this->app->bind(\App\DAL\Repositories\User\Interfaces\IUsersRepository::class, \App\DAL\Repositories\User\UsersRepository::class);
-        $this->app->bind(\App\DAL\Repositories\Role\Interfaces\IRolesRepository::class, \App\DAL\Repositories\Role\RolesRepository::class);
-        $this->app->bind(\App\DAL\Repositories\Permission\Interfaces\IPermissionsRepository::class, \App\DAL\Repositories\Permission\PermissionsRepository::class);
-        $this->app->bind(\App\DAL\Repositories\Frontend\Product\Interfaces\IProductsRepository::class, \App\DAL\Repositories\Frontend\Product\ProductsRepository::class);
+        $this->app->bind(\App\Repositories\Post\Interfaces\IPostsRepository::class, \App\Repositories\Post\PostsRepository::class);
+        $this->app->bind(\App\Repositories\MailerSetting\Interfaces\IMailerSettingsRepository::class, \App\Repositories\MailerSetting\MailerSettingsRepository::class);
+        $this->app->bind(\App\Repositories\SoftDeletion\Interfaces\ISoftDeletionRepository::class, \App\Repositories\SoftDeletion\SoftDeletionRepository::class);
+        $this->app->bind(\App\Repositories\Trash\Interfaces\ITrashableRepository::class, \App\Repositories\Trash\TrashableRepository::class);
+        $this->app->bind(\App\Repositories\PostCategory\Interfaces\IPostCategoriesRepository::class, \App\Repositories\PostCategory\PostCategoriesRepository::class);
+        $this->app->bind(\App\Repositories\ProductCategory\Interfaces\IProductCategoriesRepository::class, \App\Repositories\ProductCategory\ProductCategoriesRepository::class);
+        $this->app->bind(\App\Repositories\Product\Interfaces\IProductsRepository::class, \App\Repositories\Product\ProductsRepository::class);
+        $this->app->bind(\App\Repositories\User\Interfaces\IUsersRepository::class, \App\Repositories\User\UsersRepository::class);
+        $this->app->bind(\App\Repositories\Role\Interfaces\IRolesRepository::class, \App\Repositories\Role\RolesRepository::class);
+        $this->app->bind(\App\Repositories\Permission\Interfaces\IPermissionsRepository::class, \App\Repositories\Permission\PermissionsRepository::class);
+        $this->app->bind(\App\Repositories\Frontend\Product\Interfaces\IProductsRepository::class, \App\Repositories\Frontend\Product\ProductsRepository::class);
 
         $this->app->bind(\App\Contracts\IPaymentGateway::class, function (Application $app)
         {
@@ -31,26 +31,29 @@ class ServiceContainerProvider extends ServiceProvider
 
             if ($paymentMethod === 'stripe')
             {
-                return new \App\DAL\Services\Payment\StripePaymentService;
+                return new \App\Services\Payment\StripePaymentService;
             }
             elseif ($paymentMethod === 'paypal')
             {
-                return new \App\DAL\Services\Payment\PayPalPaymentService();
+                return new \App\Services\Payment\PayPalPaymentService();
             }
 
-            return new \App\DAL\Services\Payment\StripePaymentService;
+            return new \App\Services\Payment\StripePaymentService;
         });
 
         //Services
-        $this->app->bind(\App\DAL\Services\WeatherForecast\Interfaces\IWeatherForecastService::class, function (Application $app)
+        $this->app->bind(\App\Services\WeatherForecast\Interfaces\IWeatherForecastService::class, function (Application $application)
         {
             $service = config('weather-forecast.api_service', 'weatherapi');
 
             if ($service === 'weatherapi')
-                return new \App\DAL\Services\WeatherForecast\WeatherApiService;
+                return new \App\Services\WeatherForecast\WeatherApiService;
 
-            return new \App\DAL\Services\WeatherForecast\WeatherApiService;
+            return new \App\Services\WeatherForecast\WeatherApiService;
         });
+
+        //Managers
+        $this->app->bind(\App\Managers\Interfaces\IImageManager::class, \App\Managers\ImageManager::class);
     }
 
     /**
